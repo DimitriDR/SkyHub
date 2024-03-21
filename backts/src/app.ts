@@ -1,19 +1,17 @@
 import express from 'express';
 import dotenv from 'dotenv';
-const mongoose = require('mongoose');
-// import cookieParser from 'cookie-parser';
+import mongoose from 'mongoose';
+
 const routes = require('./index');
+
 dotenv.config()
 
 const app = express();
-const PORT = Number(process.env.PORT) || 3000;
-
-console.log(process.env.DB_CONNECTION)
-console.log(process.env.PORT)
+const PORT = Number(process.env.PORT) || 4000;
 
 async function startServer() {
     try {
-        mongoose.connect(process.env.DB_CONNECTION)
+        mongoose.connect(String(process.env.DB_CONNECTION))
             .then(() => console.log('MongoDB Connected'))
             .catch((err: any) => console.log(err));
 
