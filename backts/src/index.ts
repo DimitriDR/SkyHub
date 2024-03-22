@@ -1,8 +1,10 @@
-const express = require('express');
-const flights = require('./routes/flights');
-const airports = require('./routes/airports');
-const router = express.Router();
+import express, { Router } from 'express';
+import flightsRouter from './routes/flights-routes';
+import airportsRouter from './routes/airports-routes';
 
-router.use('/flights', flights);
-router.use('/airports', airports)
-module.exports = router;
+const router: Router = express.Router();
+
+router.use('/flights', flightsRouter);
+router.use('/airports', airportsRouter);
+
+export default router;

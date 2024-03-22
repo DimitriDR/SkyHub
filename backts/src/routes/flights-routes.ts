@@ -1,9 +1,8 @@
 import {Router} from "express";
-
-const express = require('express');
-const router : Router = express.Router();
+import express from 'express';
 import {getFlights} from '../controllers/flights-controller';
 
+const router: Router = express.Router();
 router.get('/', getFlights);
 
-module.exports = router;
+export default router;

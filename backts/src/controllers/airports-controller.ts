@@ -1,4 +1,6 @@
-export async function getAirports(req : any, res : any) {
+import { Request, Response } from 'express';
+
+export async function getAirports(req : Request, res : Response) {
     console.log('getAirports');
     res.send({
         flights: [

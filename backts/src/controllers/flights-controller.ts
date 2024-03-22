@@ -1,4 +1,6 @@
-export async function getFlights(req : any, res : any) {
+import { Request, Response } from 'express';
+
+export async function getFlights(req : Request, res : Response) {
     res.send({
         flights: [
             {id: 1, flight: 'JFK flight'},

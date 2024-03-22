@@ -1,9 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-
-const routes = require('./index');
-
+import routes from './index'; // Assuming index.ts exports the routes
 dotenv.config()
 
 const app = express();
@@ -11,10 +9,11 @@ const PORT = Number(process.env.PORT) || 4000;
 
 async function startServer() {
     try {
-        mongoose.connect(String(process.env.DB_CONNECTION))
-            .then(() => console.log('MongoDB Connected'))
-            .catch((err: any) => console.log(err));
-
+        await mongoose.connect(String(process.env.DB_CONNECTION)).then(() => {
+            console.log('Connected to MongoDB');
+        }).catch((error) => {
+            console.error(`Error connecting to MongoDB: ${error}`);
+        });
         // Define routes and middleware
 
         app.use('/api', routes);
@@ -25,8 +24,8 @@ async function startServer() {
             console.log(`Server is running on port ${PORT}`);
         });
     } catch (error) {
-        console.error(`Error connecting to MongoDB: ${error}`);
+        console.error(`Error : ${error}`);
     }
 }
 
-startServer()
+startServer().catch(e => console.error(`Error starting server: ${e}`));
