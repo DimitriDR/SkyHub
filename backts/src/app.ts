@@ -14,11 +14,12 @@ async function startServer() {
         }).catch((error) => {
             console.error(`Error connecting to MongoDB: ${error}`);
         });
-        // Define routes and middleware
-
-        app.use('/api', routes);
+        // middleware - before routes
         app.use(express.json());
         app.use(express.urlencoded({extended: false}));
+
+        // routes
+        app.use('/api', routes);
         // Start the server
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
