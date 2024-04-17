@@ -1,11 +1,12 @@
-import express from 'express';
+import express, {Express} from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import routes from './index'; // Assuming index.ts exports the routes
 dotenv.config()
 
-const app = express();
-const PORT = Number(process.env.PORT) || 4000;
+const app: Express = express();
+// On va chercher le port dans les variables d'environnement, sinon notre application écoute sur le port 4000
+const PORT: number = Number(process.env.PORT) || 4000;
 
 async function startServer() {
     try {
