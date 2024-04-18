@@ -1,0 +1,22 @@
+FROM node:21
+
+# Création du répertoire de l'application, ici très originale, on prend /app
+WORKDIR /app
+
+# Copie des fichiers de configuration
+COPY ../backts/package*.json ./
+
+# Installation des dépendances
+RUN npm install
+
+# Copie des fichiers sources
+COPY ../backts .
+
+# Phase de compilation
+RUN npm run build
+
+# Port d'écoute du serveur
+EXPOSE 4000
+
+# Démarrage du serveur
+CMD ["npm", "start"]
