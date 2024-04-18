@@ -5,12 +5,28 @@ import routes from './index'; // Assuming index.ts exports the routes
 dotenv.config()
 
 const app: Express = express();
-// On va chercher le port dans les variables d'environnement, sinon notre application écoute sur le port 4000
-const PORT: number = Number(process.env.PORT) || 4000;
 
+//-----------
+// CONSTANTES
+//-----------
+// Port d'écoute de notre serveur, inutile de le changer car l'utilisateur aura, in fine, la main par le conteneur
+const PORT: number = 4000;
+
+// On doit nécessairement demander à l'utilisateur de renseigner le nom du conteneur de la BD pour pouvoir se connecter
+// Par ce biais, on va utiliser le Magic DNS de Docker pour avoir la bonne adresse IP
+const DB_HOSTNAME: string = String(process.env.DB_HOSTNAME)
+
+// Constantes qui ne bougent pas, car aucun intérêt pour l'utilisateur de les changer.
+const DB_PORT: number = 27017;
+const DB_DATABASE_NAME: string = "skyhub"
+
+// URL de connexion à la BD
+const DB_CONNECTION: string = `mongodb://${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}`;
+
+//-----------
 async function startServer() {
     try {
-        await mongoose.connect(String(process.env.DB_CONNECTION)).then(() => {
+        await mongoose.connect(DB_CONNECTION).then(() => {
             console.log('[INFO] Connecté à MongoDB !');
         }).catch((error) => {
             console.error(`[ERREUR] Erreur lors de la connexion à la MongoDB : ${error}`);

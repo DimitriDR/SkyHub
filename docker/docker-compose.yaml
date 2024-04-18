@@ -1,13 +1,18 @@
 version: "3.9"
 
 services:
-  node-server:
+  api-server:
     image: dimitridr/skyhub-server:latest
-    container_name: SkyHub
+    container_name: SkyHub-API
+    environment:
+      DB_HOSTNAME: SkyHub-DB  # Le nom ligne 16 doit être reporté ici, autrement notre conteneur ne sait pas l'adresse IP de notre base de données
     ports:
-      - "4000:4000"
-  mongodb:
-    image: mongo:latest
-    container_name: MongoDB
+      - "3000:4000"
+    depends_on:
+      - db
+
+  db:
+    image: dimitridr/skyhub-db:latest
+    container_name: SkyHub-DB
     ports:
-      - "27017:27017"
+      - "55055:27017"
