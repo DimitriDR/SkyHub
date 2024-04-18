@@ -6,9 +6,6 @@ RUN mkdir -p /data/db/to_be_imported
 COPY db-files/airports.json /data/db/to_be_imported
 # COPY db-files/flights.json /data/db/to_be_imported Pour plus tard
 
-# On importe les données dans la base de données
-RUN echo "Importation des données dans la base de données"
-
 # On importe les données au préalable, l'utilisateur n'a pas à attendre que ce soit OK à chaque démarrage du conteneur
 RUN mongod --fork --logpath /var/log/mongodb.log --bind_ip_all && \
     mongoimport --db skyhub --collection airports --file /data/db/to_be_imported/airports.json --jsonArray && \

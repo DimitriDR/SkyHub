@@ -33,7 +33,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout du dépôt
+        uses: actions/checkout@v2
+
+      - name: Installation de Git LFS
+        run: |
+          sudo apt-get update
+          sudo apt-get install git-lfs
+          git lfs install
+
+      - name: Récupération des fichiers LFS
+        run: git lfs fetch && git lfs checkout
 
       - name: Compilation vers image Docker
         run: sudo docker build -t dimitridr/skyhub-db:$GITHUB_SHA -f docker/Dockerfile-skyhub-db .
