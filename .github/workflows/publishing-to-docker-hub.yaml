@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
 
       - name: Compilation vers image Docker
         run: sudo docker build -t dimitridr/skyhub-server:$GITHUB_SHA -f docker/Dockerfile-skyhub-server .
@@ -34,7 +35,7 @@ jobs:
     
     steps:
       - name: Checkout du dépôt
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Installation de Git LFS
         run: |
