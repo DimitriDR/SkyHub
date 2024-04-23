@@ -1,6 +1,8 @@
 import {Request, Response} from "express";
 
 import Airport from "../models/airports";
+import {getAirports} from "../controllers/airports-controller";
+import {QueryOptions} from "mongoose";
 
 /**
  * Récupère tous les aéroports
@@ -8,39 +10,47 @@ import Airport from "../models/airports";
  * @param {Response} res L'objet de la réponse renvoyé par le serveur
  */
 export async function getAll(req: Request, res: Response) {
-    // console.log('getAllAirports');
-    // Airport.find().then((airports) => {
-    //     res.send(airports);
-    // }).catch((error) => {
-    //     res.send(error);
-    // });
     console.log('getAllAirports');
 
-    let page: number = parseInt(req.query.page as string, 10);
-    let limit: number = parseInt(req.query.limit as string, 10);
+    let queryFilters = getAirportsFilters(req);
+    console.log('queryFilters', queryFilters);
 
-    page = isNaN(page) || page < 1 ? 1 : page;
-    limit = isNaN(limit) || limit < 1 ? 10 : limit;
+    const options : QueryOptions = {};
+    // si pas de filtres et que page et limit sont présents, on pagine
+    if (Object.keys(queryFilters).length === 0 && req.query.page && req.query.limit) {
+        let page: number = parseInt(req.query.page as string, 10);
+        let limit: number = parseInt(req.query.limit as string, 10);
 
-    const skip: number = (page - 1) * limit;
+        page = isNaN(page) || page < 1 ? 1 : page;
+        limit = isNaN(limit) || limit < 1 ? 10 : limit;
 
-    Airport.find().limit(limit).skip(skip).then((airports) => {
+        const skip: number = (page - 1) * limit;
+        options.limit = limit;
+        options.skip = skip;
+    }
+
+    Airport.find(queryFilters, null, options).then((airports) => {
         res.send(airports);
     }).catch((error) => {
-        res.send(error);
+        res.status(500).send(error);  // Properly handle errors with a status code
     });
-
 }
 
-export async function getOne(req: Request, res: Response) {
-    const {id} = req.params;
-
-    Airport.findOne({airport_id: id}).then((airport) => {
-        res.send(airport);
-    }).catch((error) => {
-            res.send(error);
-        }
-    );
+function getAirportsFilters(req : Request) {
+    const queryFilters: any = {};
+    if (req.query.id) {
+        queryFilters._id = parseInt(req.query.id as string, 10);
+    }
+    if (req.query.city) {
+        queryFilters.city = req.query.city as string;
+    }
+    if (req.query.state) {
+        queryFilters.state = req.query.state as string;
+    }
+    if (req.query.name) {
+        queryFilters.name = req.query.name as string;
+    }
+    return queryFilters;
 }
 
 
@@ -70,7 +80,7 @@ export function add(req: Request, res: Response) {
     // console.log(req)
     const newAirport = new Airport(req.body);
 
-    newAirport.airport_id = randomNumberId();
+    newAirport._id = randomNumberId();
 
     console.log('addAirport ', newAirport);
 
@@ -100,12 +110,12 @@ export function add(req: Request, res: Response) {
 export function update(req: Request, res: Response): void {
     const {id} = req.params;
 
-    Airport.findOneAndUpdate({airport_id: id}, req.body, {new: true})
+    Airport.findOneAndUpdate({_id: id}, req.body, {new: true})
         .then(updatedAirport => {
             if (!updatedAirport) {
                 return res.status(404).json({message: "Aéroport non trouvé."});
             }
-            res.status(200).json(updatedAirport);
+            res.status(201).json(updatedAirport);
         })
         .catch(error => {
             res.status(400).json({message: "Requête invalide. Erreur retournée par le serveur : " + error.message});
@@ -130,7 +140,7 @@ export function update(req: Request, res: Response): void {
 export function deleteAirportFromDB(req: Request, res: Response): void {
     const {id} = req.params;
     console.log('deleteAirportFromDB ', id);
-    Airport.findOneAndDelete({airport_id: id})
+    Airport.findOneAndDelete({_id: id})
         .then(airport => {
             if (!airport) {
                 return res.status(404).json({message: "Aéroport non trouvé."});
