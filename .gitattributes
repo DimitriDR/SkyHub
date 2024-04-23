@@ -1,2 +1,0 @@
-db-files/flights.json filter=lfs diff=lfs merge=lfs -text
-db-files/airports.json filter=lfs diff=lfs merge=lfs -text

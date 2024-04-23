@@ -37,14 +37,12 @@ jobs:
       - name: Checkout du dépôt
         uses: actions/checkout@v4
 
-      - name: Installation de Git LFS
-        run: |
-          sudo apt-get update
-          sudo apt-get install git-lfs
-          git lfs install
-
-      - name: Récupération des fichiers LFS
-        run: git lfs fetch && git lfs checkout
+      # J'avais utilisé Git LFS qui était plus simple et pro que
+      # cette méthode, mais le quota a été dépassé en deux commits...
+      - name: Récupération du fichier flights.json
+        uses: wei/wget@v1
+        with:
+          args: --no-check-certificate "https://drive.google.com/file/d/1F_5FZg5BaoLQErIKZ5S9b21AWc-1DIHc/view?usp=drive_link" -O db-files/flights.json
 
       - name: Compilation vers image Docker
         run: sudo docker build -t dimitridr/skyhub-db:$GITHUB_SHA -f docker/Dockerfile-skyhub-db .
