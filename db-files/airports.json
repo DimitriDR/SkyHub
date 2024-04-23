@@ -1,3 +1,2192 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0c831cbc8f5ee5cc6654da9135c763f689b31c4ca7288c749d4633b3846cf89e
-size 42562
+[
+  {
+    "airport_id": 10165,
+    "city": "Adak Island",
+    "state": "AK",
+    "name": "Adak"
+  },
+  {
+    "airport_id": 10299,
+    "city": "Anchorage",
+    "state": "AK",
+    "name": "Ted Stevens Anchorage International"
+  },
+  {
+    "airport_id": 10304,
+    "city": "Aniak",
+    "state": "AK",
+    "name": "Aniak Airport"
+  },
+  {
+    "airport_id": 10754,
+    "city": "Barrow",
+    "state": "AK",
+    "name": "Wiley Post/Will Rogers Memorial"
+  },
+  {
+    "airport_id": 10551,
+    "city": "Bethel",
+    "state": "AK",
+    "name": "Bethel Airport"
+  },
+  {
+    "airport_id": 10926,
+    "city": "Cordova",
+    "state": "AK",
+    "name": "Merle K Mudhole Smith"
+  },
+  {
+    "airport_id": 14709,
+    "city": "Deadhorse",
+    "state": "AK",
+    "name": "Deadhorse Airport"
+  },
+  {
+    "airport_id": 11336,
+    "city": "Dillingham",
+    "state": "AK",
+    "name": "Dillingham Airport"
+  },
+  {
+    "airport_id": 11630,
+    "city": "Fairbanks",
+    "state": "AK",
+    "name": "Fairbanks International"
+  },
+  {
+    "airport_id": 11997,
+    "city": "Gustavus",
+    "state": "AK",
+    "name": "Gustavus Airport"
+  },
+  {
+    "airport_id": 12523,
+    "city": "Juneau",
+    "state": "AK",
+    "name": "Juneau International"
+  },
+  {
+    "airport_id": 12819,
+    "city": "Ketchikan",
+    "state": "AK",
+    "name": "Ketchikan International"
+  },
+  {
+    "airport_id": 10245,
+    "city": "King Salmon",
+    "state": "AK",
+    "name": "King Salmon Airport"
+  },
+  {
+    "airport_id": 10170,
+    "city": "Kodiak",
+    "state": "AK",
+    "name": "Kodiak Airport"
+  },
+  {
+    "airport_id": 13970,
+    "city": "Kotzebue",
+    "state": "AK",
+    "name": "Ralph Wien Memorial"
+  },
+  {
+    "airport_id": 13873,
+    "city": "Nome",
+    "state": "AK",
+    "name": "Nome Airport"
+  },
+  {
+    "airport_id": 14256,
+    "city": "Petersburg",
+    "state": "AK",
+    "name": "Petersburg James A Johnson"
+  },
+  {
+    "airport_id": 14828,
+    "city": "Sitka",
+    "state": "AK",
+    "name": "Sitka Rocky Gutierrez"
+  },
+  {
+    "airport_id": 12807,
+    "city": "St. Mary's",
+    "state": "AK",
+    "name": "St. Mary's Airport"
+  },
+  {
+    "airport_id": 11445,
+    "city": "Unalaska",
+    "state": "AK",
+    "name": "Unalaska Airport"
+  },
+  {
+    "airport_id": 15841,
+    "city": "Wrangell",
+    "state": "AK",
+    "name": "Wrangell Airport"
+  },
+  {
+    "airport_id": 15991,
+    "city": "Yakutat",
+    "state": "AK",
+    "name": "Yakutat Airport"
+  },
+  {
+    "airport_id": 10599,
+    "city": "Birmingham",
+    "state": "AL",
+    "name": "Birmingham-Shuttlesworth International"
+  },
+  {
+    "airport_id": 11308,
+    "city": "Dothan",
+    "state": "AL",
+    "name": "Dothan Regional"
+  },
+  {
+    "airport_id": 12217,
+    "city": "Huntsville",
+    "state": "AL",
+    "name": "Huntsville International-Carl T Jones Field"
+  },
+  {
+    "airport_id": 13422,
+    "city": "Mobile",
+    "state": "AL",
+    "name": "Mobile Regional"
+  },
+  {
+    "airport_id": 13277,
+    "city": "Montgomery",
+    "state": "AL",
+    "name": "Montgomery Regional"
+  },
+  {
+    "airport_id": 15919,
+    "city": "Fayetteville",
+    "state": "AR",
+    "name": "Northwest Arkansas Regional"
+  },
+  {
+    "airport_id": 11778,
+    "city": "Fort Smith",
+    "state": "AR",
+    "name": "Fort Smith Regional"
+  },
+  {
+    "airport_id": 12992,
+    "city": "Little Rock",
+    "state": "AR",
+    "name": "Adams Field"
+  },
+  {
+    "airport_id": 15401,
+    "city": "Texarkana",
+    "state": "AR",
+    "name": "Texarkana Regional-Webb Field"
+  },
+  {
+    "airport_id": 11695,
+    "city": "Flagstaff",
+    "state": "AZ",
+    "name": "Flagstaff Pulliam"
+  },
+  {
+    "airport_id": 11869,
+    "city": "Grand Canyon",
+    "state": "AZ",
+    "name": "Grand Canyon National Park"
+  },
+  {
+    "airport_id": 14107,
+    "city": "Phoenix",
+    "state": "AZ",
+    "name": "Phoenix Sky Harbor International"
+  },
+  {
+    "airport_id": 15376,
+    "city": "Tucson",
+    "state": "AZ",
+    "name": "Tucson International"
+  },
+  {
+    "airport_id": 16218,
+    "city": "Yuma",
+    "state": "AZ",
+    "name": "Yuma MCAS/Yuma International"
+  },
+  {
+    "airport_id": 10157,
+    "city": "Arcata/Eureka",
+    "state": "CA",
+    "name": "Arcata"
+  },
+  {
+    "airport_id": 10561,
+    "city": "Bakersfield",
+    "state": "CA",
+    "name": "Meadows Field"
+  },
+  {
+    "airport_id": 10800,
+    "city": "Burbank",
+    "state": "CA",
+    "name": "Bob Hope"
+  },
+  {
+    "airport_id": 11041,
+    "city": "Carlsbad",
+    "state": "CA",
+    "name": "McClellan-Palomar"
+  },
+  {
+    "airport_id": 11002,
+    "city": "Chico",
+    "state": "CA",
+    "name": "Chico Municipal"
+  },
+  {
+    "airport_id": 10910,
+    "city": "Concord",
+    "state": "CA",
+    "name": "Buchanan Field"
+  },
+  {
+    "airport_id": 10930,
+    "city": "Crescent City",
+    "state": "CA",
+    "name": "Jack McNamara Field"
+  },
+  {
+    "airport_id": 12363,
+    "city": "El Centro",
+    "state": "CA",
+    "name": "Imperial County"
+  },
+  {
+    "airport_id": 11638,
+    "city": "Fresno",
+    "state": "CA",
+    "name": "Fresno Yosemite International"
+  },
+  {
+    "airport_id": 12436,
+    "city": "Inyokern",
+    "state": "CA",
+    "name": "Inyokern Airport"
+  },
+  {
+    "airport_id": 15383,
+    "city": "Lake Tahoe",
+    "state": "CA",
+    "name": "Lake Tahoe Airport"
+  },
+  {
+    "airport_id": 12954,
+    "city": "Long Beach",
+    "state": "CA",
+    "name": "Long Beach Airport"
+  },
+  {
+    "airport_id": 12892,
+    "city": "Los Angeles",
+    "state": "CA",
+    "name": "Los Angeles International"
+  },
+  {
+    "airport_id": 13388,
+    "city": "Mammoth Lakes",
+    "state": "CA",
+    "name": "Mammoth Lakes Airport"
+  },
+  {
+    "airport_id": 13424,
+    "city": "Modesto",
+    "state": "CA",
+    "name": "Modesto City-County-Harry Sham Field"
+  },
+  {
+    "airport_id": 13476,
+    "city": "Monterey",
+    "state": "CA",
+    "name": "Monterey Peninsula"
+  },
+  {
+    "airport_id": 13796,
+    "city": "Oakland",
+    "state": "CA",
+    "name": "Metropolitan Oakland International"
+  },
+  {
+    "airport_id": 13891,
+    "city": "Ontario",
+    "state": "CA",
+    "name": "Ontario International"
+  },
+  {
+    "airport_id": 13988,
+    "city": "Oxnard/Ventura",
+    "state": "CA",
+    "name": "Oxnard"
+  },
+  {
+    "airport_id": 14262,
+    "city": "Palm Springs",
+    "state": "CA",
+    "name": "Palm Springs International"
+  },
+  {
+    "airport_id": 14162,
+    "city": "Palmdale",
+    "state": "CA",
+    "name": "Palmdale USAF Plant 42"
+  },
+  {
+    "airport_id": 14487,
+    "city": "Redding",
+    "state": "CA",
+    "name": "Redding Municipal"
+  },
+  {
+    "airport_id": 14893,
+    "city": "Sacramento",
+    "state": "CA",
+    "name": "Sacramento International"
+  },
+  {
+    "airport_id": 14679,
+    "city": "San Diego",
+    "state": "CA",
+    "name": "San Diego International"
+  },
+  {
+    "airport_id": 14771,
+    "city": "San Francisco",
+    "state": "CA",
+    "name": "San Francisco International"
+  },
+  {
+    "airport_id": 14831,
+    "city": "San Jose",
+    "state": "CA",
+    "name": "Norman Y. Mineta San Jose International"
+  },
+  {
+    "airport_id": 14698,
+    "city": "San Luis Obispo",
+    "state": "CA",
+    "name": "San Luis County Regional"
+  },
+  {
+    "airport_id": 14908,
+    "city": "Santa Ana",
+    "state": "CA",
+    "name": "John Wayne Airport-Orange County"
+  },
+  {
+    "airport_id": 14689,
+    "city": "Santa Barbara",
+    "state": "CA",
+    "name": "Santa Barbara Municipal"
+  },
+  {
+    "airport_id": 14905,
+    "city": "Santa Maria",
+    "state": "CA",
+    "name": "Santa Maria Public/Capt. G. Allan Hancock Field"
+  },
+  {
+    "airport_id": 14716,
+    "city": "Stockton",
+    "state": "CA",
+    "name": "Stockton Metropolitan"
+  },
+  {
+    "airport_id": 15601,
+    "city": "Visalia",
+    "state": "CA",
+    "name": "Visalia Municipal"
+  },
+  {
+    "airport_id": 10372,
+    "city": "Aspen",
+    "state": "CO",
+    "name": "Aspen Pitkin County Sardy Field"
+  },
+  {
+    "airport_id": 11109,
+    "city": "Colorado Springs",
+    "state": "CO",
+    "name": "City of Colorado Springs Municipal"
+  },
+  {
+    "airport_id": 11292,
+    "city": "Denver",
+    "state": "CO",
+    "name": "Denver International"
+  },
+  {
+    "airport_id": 11413,
+    "city": "Durango",
+    "state": "CO",
+    "name": "Durango La Plata County"
+  },
+  {
+    "airport_id": 11503,
+    "city": "Eagle",
+    "state": "CO",
+    "name": "Eagle County Regional"
+  },
+  {
+    "airport_id": 11921,
+    "city": "Grand Junction",
+    "state": "CO",
+    "name": "Grand Junction Regional"
+  },
+  {
+    "airport_id": 12012,
+    "city": "Gunnison",
+    "state": "CO",
+    "name": "Gunnison-Crested Butte Regional"
+  },
+  {
+    "airport_id": 12094,
+    "city": "Hayden",
+    "state": "CO",
+    "name": "Yampa Valley"
+  },
+  {
+    "airport_id": 13502,
+    "city": "Montrose/Delta",
+    "state": "CO",
+    "name": "Montrose Regional"
+  },
+  {
+    "airport_id": 14288,
+    "city": "Pueblo",
+    "state": "CO",
+    "name": "Pueblo Memorial"
+  },
+  {
+    "airport_id": 15177,
+    "city": "Telluride",
+    "state": "CO",
+    "name": "Telluride Regional"
+  },
+  {
+    "airport_id": 10529,
+    "city": "Hartford",
+    "state": "CT",
+    "name": "Bradley International"
+  },
+  {
+    "airport_id": 12244,
+    "city": "New Haven",
+    "state": "CT",
+    "name": "Tweed New Haven"
+  },
+  {
+    "airport_id": 11278,
+    "city": "Washington",
+    "state": "DC",
+    "name": "Ronald Reagan Washington National"
+  },
+  {
+    "airport_id": 12264,
+    "city": "Washington",
+    "state": "DC",
+    "name": "Washington Dulles International"
+  },
+  {
+    "airport_id": 12320,
+    "city": "Wilmington",
+    "state": "DE",
+    "name": "New Castle"
+  },
+  {
+    "airport_id": 15994,
+    "city": "Yap",
+    "state": "Federated States of Micronesia",
+    "name": "Yap International"
+  },
+  {
+    "airport_id": 11252,
+    "city": "Daytona Beach",
+    "state": "FL",
+    "name": "Daytona Beach International"
+  },
+  {
+    "airport_id": 11697,
+    "city": "Fort Lauderdale",
+    "state": "FL",
+    "name": "Fort Lauderdale-Hollywood International"
+  },
+  {
+    "airport_id": 14635,
+    "city": "Fort Myers",
+    "state": "FL",
+    "name": "Southwest Florida International"
+  },
+  {
+    "airport_id": 11953,
+    "city": "Gainesville",
+    "state": "FL",
+    "name": "Gainesville Regional"
+  },
+  {
+    "airport_id": 12451,
+    "city": "Jacksonville",
+    "state": "FL",
+    "name": "Jacksonville International"
+  },
+  {
+    "airport_id": 11624,
+    "city": "Key West",
+    "state": "FL",
+    "name": "Key West International"
+  },
+  {
+    "airport_id": 13501,
+    "city": "Marathon",
+    "state": "FL",
+    "name": "The Florida Keys Marathon"
+  },
+  {
+    "airport_id": 13360,
+    "city": "Melbourne",
+    "state": "FL",
+    "name": "Melbourne International"
+  },
+  {
+    "airport_id": 13303,
+    "city": "Miami",
+    "state": "FL",
+    "name": "Miami International"
+  },
+  {
+    "airport_id": 10329,
+    "city": "Naples",
+    "state": "FL",
+    "name": "Naples Municipal"
+  },
+  {
+    "airport_id": 13204,
+    "city": "Orlando",
+    "state": "FL",
+    "name": "Orlando International"
+  },
+  {
+    "airport_id": 14078,
+    "city": "Panama City",
+    "state": "FL",
+    "name": "Bay County"
+  },
+  {
+    "airport_id": 11481,
+    "city": "Panama City",
+    "state": "FL",
+    "name": "Northwest Florida Beaches International"
+  },
+  {
+    "airport_id": 14193,
+    "city": "Pensacola",
+    "state": "FL",
+    "name": "Pensacola Gulf Coast Regional"
+  },
+  {
+    "airport_id": 14986,
+    "city": "Sarasota/Bradenton",
+    "state": "FL",
+    "name": "Sarasota/Bradenton International"
+  },
+  {
+    "airport_id": 14112,
+    "city": "St. Petersburg",
+    "state": "FL",
+    "name": "St. Petersburg-Clearwater International"
+  },
+  {
+    "airport_id": 15249,
+    "city": "Tallahassee",
+    "state": "FL",
+    "name": "Tallahassee Regional"
+  },
+  {
+    "airport_id": 15304,
+    "city": "Tampa",
+    "state": "FL",
+    "name": "Tampa International"
+  },
+  {
+    "airport_id": 15624,
+    "city": "Valparaiso",
+    "state": "FL",
+    "name": "Northwest Florida Regional"
+  },
+  {
+    "airport_id": 14027,
+    "city": "West Palm Beach/Palm Beach",
+    "state": "FL",
+    "name": "Palm Beach International"
+  },
+  {
+    "airport_id": 10146,
+    "city": "Albany",
+    "state": "GA",
+    "name": "Southwest Georgia Regional"
+  },
+  {
+    "airport_id": 10397,
+    "city": "Atlanta",
+    "state": "GA",
+    "name": "Hartsfield-Jackson Atlanta International"
+  },
+  {
+    "airport_id": 10208,
+    "city": "Augusta",
+    "state": "GA",
+    "name": "Augusta Regional at Bush Field"
+  },
+  {
+    "airport_id": 10731,
+    "city": "Brunswick",
+    "state": "GA",
+    "name": "Brunswick Golden Isles"
+  },
+  {
+    "airport_id": 11150,
+    "city": "Columbus",
+    "state": "GA",
+    "name": "Columbus Metropolitan"
+  },
+  {
+    "airport_id": 13203,
+    "city": "Macon",
+    "state": "GA",
+    "name": "Middle Georgia Regional"
+  },
+  {
+    "airport_id": 14685,
+    "city": "Savannah",
+    "state": "GA",
+    "name": "Savannah/Hilton Head International"
+  },
+  {
+    "airport_id": 15607,
+    "city": "Valdosta",
+    "state": "GA",
+    "name": "Valdosta Regional"
+  },
+  {
+    "airport_id": 12402,
+    "city": "Hilo",
+    "state": "HI",
+    "name": "Hilo International"
+  },
+  {
+    "airport_id": 12173,
+    "city": "Honolulu",
+    "state": "HI",
+    "name": "Honolulu International"
+  },
+  {
+    "airport_id": 13347,
+    "city": "Hoolehua",
+    "state": "HI",
+    "name": "Molokai"
+  },
+  {
+    "airport_id": 13830,
+    "city": "Kahului",
+    "state": "HI",
+    "name": "Kahului Airport"
+  },
+  {
+    "airport_id": 12758,
+    "city": "Kona",
+    "state": "HI",
+    "name": "Kona International Airport at Keahole"
+  },
+  {
+    "airport_id": 13034,
+    "city": "Lanai",
+    "state": "HI",
+    "name": "Lanai Airport"
+  },
+  {
+    "airport_id": 12982,
+    "city": "Lihue",
+    "state": "HI",
+    "name": "Lihue Airport"
+  },
+  {
+    "airport_id": 11003,
+    "city": "Cedar Rapids/Iowa City",
+    "state": "IA",
+    "name": "The Eastern Iowa"
+  },
+  {
+    "airport_id": 11423,
+    "city": "Des Moines",
+    "state": "IA",
+    "name": "Des Moines International"
+  },
+  {
+    "airport_id": 11274,
+    "city": "Dubuque",
+    "state": "IA",
+    "name": "Dubuque Regional"
+  },
+  {
+    "airport_id": 15048,
+    "city": "Sioux City",
+    "state": "IA",
+    "name": "Sioux Gateway/Col. Bud Day Field"
+  },
+  {
+    "airport_id": 10268,
+    "city": "Waterloo",
+    "state": "IA",
+    "name": "Waterloo Regional"
+  },
+  {
+    "airport_id": 10713,
+    "city": "Boise",
+    "state": "ID",
+    "name": "Boise Air Terminal"
+  },
+  {
+    "airport_id": 12280,
+    "city": "Idaho Falls",
+    "state": "ID",
+    "name": "Idaho Falls Regional"
+  },
+  {
+    "airport_id": 13127,
+    "city": "Lewiston",
+    "state": "ID",
+    "name": "Lewiston Nez Perce County"
+  },
+  {
+    "airport_id": 14113,
+    "city": "Pocatello",
+    "state": "ID",
+    "name": "Pocatello Regional"
+  },
+  {
+    "airport_id": 15041,
+    "city": "Sun Valley/Hailey/Ketchum",
+    "state": "ID",
+    "name": "Friedman Memorial"
+  },
+  {
+    "airport_id": 15389,
+    "city": "Twin Falls",
+    "state": "ID",
+    "name": "Joslin Field - Magic Valley Regional"
+  },
+  {
+    "airport_id": 10685,
+    "city": "Bloomington/Normal",
+    "state": "IL",
+    "name": "Central Illinois Regional"
+  },
+  {
+    "airport_id": 11067,
+    "city": "Champaign/Urbana",
+    "state": "IL",
+    "name": "University of Illinois/Willard"
+  },
+  {
+    "airport_id": 13232,
+    "city": "Chicago",
+    "state": "IL",
+    "name": "Chicago Midway International"
+  },
+  {
+    "airport_id": 13930,
+    "city": "Chicago",
+    "state": "IL",
+    "name": "Chicago O'Hare International"
+  },
+  {
+    "airport_id": 13367,
+    "city": "Moline",
+    "state": "IL",
+    "name": "Quad City International"
+  },
+  {
+    "airport_id": 14108,
+    "city": "Peoria",
+    "state": "IL",
+    "name": "General Downing - Peoria International"
+  },
+  {
+    "airport_id": 14512,
+    "city": "Rockford",
+    "state": "IL",
+    "name": "Chicago/Rockford International"
+  },
+  {
+    "airport_id": 14952,
+    "city": "Springfield",
+    "state": "IL",
+    "name": "Abraham Lincoln Capital"
+  },
+  {
+    "airport_id": 11612,
+    "city": "Evansville",
+    "state": "IN",
+    "name": "Evansville Regional"
+  },
+  {
+    "airport_id": 11823,
+    "city": "Fort Wayne",
+    "state": "IN",
+    "name": "Fort Wayne International"
+  },
+  {
+    "airport_id": 12339,
+    "city": "Indianapolis",
+    "state": "IN",
+    "name": "Indianapolis International"
+  },
+  {
+    "airport_id": 14696,
+    "city": "South Bend",
+    "state": "IN",
+    "name": "South Bend Airport"
+  },
+  {
+    "airport_id": 11867,
+    "city": "Garden City",
+    "state": "KS",
+    "name": "Garden City Regional"
+  },
+  {
+    "airport_id": 13290,
+    "city": "Manhattan/Ft. Riley",
+    "state": "KS",
+    "name": "Manhattan Regional"
+  },
+  {
+    "airport_id": 11726,
+    "city": "Topeka",
+    "state": "KS",
+    "name": "Forbes Field"
+  },
+  {
+    "airport_id": 12278,
+    "city": "Wichita",
+    "state": "KS",
+    "name": "Wichita Mid-Continent"
+  },
+  {
+    "airport_id": 12945,
+    "city": "Lexington",
+    "state": "KY",
+    "name": "Blue Grass"
+  },
+  {
+    "airport_id": 14730,
+    "city": "Louisville",
+    "state": "KY",
+    "name": "Louisville International-Standiford Field"
+  },
+  {
+    "airport_id": 14006,
+    "city": "Paducah",
+    "state": "KY",
+    "name": "Barkley Regional"
+  },
+  {
+    "airport_id": 10185,
+    "city": "Alexandria",
+    "state": "LA",
+    "name": "Alexandria International"
+  },
+  {
+    "airport_id": 10781,
+    "city": "Baton Rouge",
+    "state": "LA",
+    "name": "Baton Rouge Metropolitan/Ryan Field"
+  },
+  {
+    "airport_id": 12951,
+    "city": "Lafayette",
+    "state": "LA",
+    "name": "Lafayette Regional"
+  },
+  {
+    "airport_id": 12915,
+    "city": "Lake Charles",
+    "state": "LA",
+    "name": "Lake Charles Regional"
+  },
+  {
+    "airport_id": 13377,
+    "city": "Monroe",
+    "state": "LA",
+    "name": "Monroe Regional"
+  },
+  {
+    "airport_id": 13495,
+    "city": "New Orleans",
+    "state": "LA",
+    "name": "Louis Armstrong New Orleans International"
+  },
+  {
+    "airport_id": 14814,
+    "city": "Shreveport",
+    "state": "LA",
+    "name": "Shreveport Regional"
+  },
+  {
+    "airport_id": 10721,
+    "city": "Boston",
+    "state": "MA",
+    "name": "Logan International"
+  },
+  {
+    "airport_id": 13541,
+    "city": "Martha's Vineyard",
+    "state": "MA",
+    "name": "Martha's Vineyard Airport"
+  },
+  {
+    "airport_id": 10154,
+    "city": "Nantucket",
+    "state": "MA",
+    "name": "Nantucket Memorial"
+  },
+  {
+    "airport_id": 13933,
+    "city": "Worcester",
+    "state": "MA",
+    "name": "Worcester Regional"
+  },
+  {
+    "airport_id": 10821,
+    "city": "Baltimore",
+    "state": "MD",
+    "name": "Baltimore/Washington International Thurgood Marshall"
+  },
+  {
+    "airport_id": 10581,
+    "city": "Bangor",
+    "state": "ME",
+    "name": "Bangor International"
+  },
+  {
+    "airport_id": 14321,
+    "city": "Portland",
+    "state": "ME",
+    "name": "Portland International Jetport"
+  },
+  {
+    "airport_id": 11295,
+    "city": "Detroit",
+    "state": "MI",
+    "name": "Coleman A. Young Municipal"
+  },
+  {
+    "airport_id": 11433,
+    "city": "Detroit",
+    "state": "MI",
+    "name": "Detroit Metro Wayne County"
+  },
+  {
+    "airport_id": 11721,
+    "city": "Flint",
+    "state": "MI",
+    "name": "Bishop International"
+  },
+  {
+    "airport_id": 11986,
+    "city": "Grand Rapids",
+    "state": "MI",
+    "name": "Gerald R. Ford International"
+  },
+  {
+    "airport_id": 11076,
+    "city": "Hancock/Houghton",
+    "state": "MI",
+    "name": "Houghton County Memorial"
+  },
+  {
+    "airport_id": 10469,
+    "city": "Kalamazoo",
+    "state": "MI",
+    "name": "Kalamazoo/Battle Creek International"
+  },
+  {
+    "airport_id": 12884,
+    "city": "Lansing",
+    "state": "MI",
+    "name": "Capital Region International"
+  },
+  {
+    "airport_id": 13459,
+    "city": "Marquette",
+    "state": "MI",
+    "name": "Sawyer International"
+  },
+  {
+    "airport_id": 13344,
+    "city": "Muskegon",
+    "state": "MI",
+    "name": "Muskegon County"
+  },
+  {
+    "airport_id": 14150,
+    "city": "Pellston",
+    "state": "MI",
+    "name": "Pellston Regional Airport of Emmet County"
+  },
+  {
+    "airport_id": 13184,
+    "city": "Saginaw/Bay City/Midland",
+    "state": "MI",
+    "name": "MBS International"
+  },
+  {
+    "airport_id": 15380,
+    "city": "Traverse City",
+    "state": "MI",
+    "name": "Cherry Capital"
+  },
+  {
+    "airport_id": 10631,
+    "city": "Bemidji",
+    "state": "MN",
+    "name": "Bemidji Regional"
+  },
+  {
+    "airport_id": 11337,
+    "city": "Duluth",
+    "state": "MN",
+    "name": "Duluth International"
+  },
+  {
+    "airport_id": 12343,
+    "city": "International Falls",
+    "state": "MN",
+    "name": "Falls International"
+  },
+  {
+    "airport_id": 13487,
+    "city": "Minneapolis",
+    "state": "MN",
+    "name": "Minneapolis-St Paul International"
+  },
+  {
+    "airport_id": 14633,
+    "city": "Rochester",
+    "state": "MN",
+    "name": "Rochester International"
+  },
+  {
+    "airport_id": 10643,
+    "city": "Branson",
+    "state": "MO",
+    "name": "Branson Airport"
+  },
+  {
+    "airport_id": 11111,
+    "city": "Columbia",
+    "state": "MO",
+    "name": "Columbia Regional"
+  },
+  {
+    "airport_id": 12511,
+    "city": "Joplin",
+    "state": "MO",
+    "name": "Joplin Regional"
+  },
+  {
+    "airport_id": 13341,
+    "city": "Kansas City",
+    "state": "MO",
+    "name": "Charles B. Wheeler Downtown"
+  },
+  {
+    "airport_id": 13198,
+    "city": "Kansas City",
+    "state": "MO",
+    "name": "Kansas City International"
+  },
+  {
+    "airport_id": 14783,
+    "city": "Springfield",
+    "state": "MO",
+    "name": "Springfield-Branson National"
+  },
+  {
+    "airport_id": 15016,
+    "city": "St. Louis",
+    "state": "MO",
+    "name": "Lambert-St. Louis International"
+  },
+  {
+    "airport_id": 12007,
+    "city": "Columbus",
+    "state": "MS",
+    "name": "Golden Triangle Regional"
+  },
+  {
+    "airport_id": 11931,
+    "city": "Greenville",
+    "state": "MS",
+    "name": "Mid Delta Regional"
+  },
+  {
+    "airport_id": 11973,
+    "city": "Gulfport/Biloxi",
+    "state": "MS",
+    "name": "Gulfport-Biloxi International"
+  },
+  {
+    "airport_id": 12448,
+    "city": "Jackson/Vicksburg",
+    "state": "MS",
+    "name": "Jackson - Evers International"
+  },
+  {
+    "airport_id": 13241,
+    "city": "Meridian",
+    "state": "MS",
+    "name": "Key Field"
+  },
+  {
+    "airport_id": 15502,
+    "city": "Tunica",
+    "state": "MS",
+    "name": "Tunica Municipal"
+  },
+  {
+    "airport_id": 15374,
+    "city": "Tupelo",
+    "state": "MS",
+    "name": "Tupelo Regional"
+  },
+  {
+    "airport_id": 10620,
+    "city": "Billings",
+    "state": "MT",
+    "name": "Billings Logan International"
+  },
+  {
+    "airport_id": 10849,
+    "city": "Bozeman",
+    "state": "MT",
+    "name": "Bozeman Yellowstone International"
+  },
+  {
+    "airport_id": 10779,
+    "city": "Butte",
+    "state": "MT",
+    "name": "Bert Mooney"
+  },
+  {
+    "airport_id": 12003,
+    "city": "Great Falls",
+    "state": "MT",
+    "name": "Great Falls International"
+  },
+  {
+    "airport_id": 12156,
+    "city": "Helena",
+    "state": "MT",
+    "name": "Helena Regional"
+  },
+  {
+    "airport_id": 11648,
+    "city": "Kalispell",
+    "state": "MT",
+    "name": "Glacier Park International"
+  },
+  {
+    "airport_id": 13486,
+    "city": "Missoula",
+    "state": "MT",
+    "name": "Missoula International"
+  },
+  {
+    "airport_id": 15897,
+    "city": "West Yellowstone",
+    "state": "MT",
+    "name": "Yellowstone"
+  },
+  {
+    "airport_id": 10431,
+    "city": "Asheville",
+    "state": "NC",
+    "name": "Asheville Regional"
+  },
+  {
+    "airport_id": 11057,
+    "city": "Charlotte",
+    "state": "NC",
+    "name": "Charlotte Douglas International"
+  },
+  {
+    "airport_id": 11641,
+    "city": "Fayetteville",
+    "state": "NC",
+    "name": "Fayetteville Regional/Grannis Field"
+  },
+  {
+    "airport_id": 11995,
+    "city": "Greensboro/High Point",
+    "state": "NC",
+    "name": "Piedmont Triad International"
+  },
+  {
+    "airport_id": 12149,
+    "city": "Hickory",
+    "state": "NC",
+    "name": "Hickory Regional"
+  },
+  {
+    "airport_id": 13795,
+    "city": "Jacksonville/Camp Lejeune",
+    "state": "NC",
+    "name": "Albert J Ellis"
+  },
+  {
+    "airport_id": 12390,
+    "city": "Kinston",
+    "state": "NC",
+    "name": "Kinston Regional Jetport at Stallings Field"
+  },
+  {
+    "airport_id": 11617,
+    "city": "New Bern/Morehead/Beaufort",
+    "state": "NC",
+    "name": "Coastal Carolina Regional"
+  },
+  {
+    "airport_id": 14938,
+    "city": "Pinehurst/Southern Pines",
+    "state": "NC",
+    "name": "Moore County"
+  },
+  {
+    "airport_id": 14492,
+    "city": "Raleigh/Durham",
+    "state": "NC",
+    "name": "Raleigh-Durham International"
+  },
+  {
+    "airport_id": 12323,
+    "city": "Wilmington",
+    "state": "NC",
+    "name": "Wilmington International"
+  },
+  {
+    "airport_id": 10627,
+    "city": "Bismarck/Mandan",
+    "state": "ND",
+    "name": "Bismarck Municipal"
+  },
+  {
+    "airport_id": 11637,
+    "city": "Fargo",
+    "state": "ND",
+    "name": "Hector International"
+  },
+  {
+    "airport_id": 11898,
+    "city": "Grand Forks",
+    "state": "ND",
+    "name": "Grand Forks International"
+  },
+  {
+    "airport_id": 13304,
+    "city": "Minot",
+    "state": "ND",
+    "name": "Minot AFB"
+  },
+  {
+    "airport_id": 13433,
+    "city": "Minot",
+    "state": "ND",
+    "name": "Minot International"
+  },
+  {
+    "airport_id": 14490,
+    "city": "Red River",
+    "state": "ND",
+    "name": "Grand Forks AFB"
+  },
+  {
+    "airport_id": 11980,
+    "city": "Grand Island",
+    "state": "NE",
+    "name": "Central Nebraska Regional"
+  },
+  {
+    "airport_id": 13029,
+    "city": "Lincoln",
+    "state": "NE",
+    "name": "Lincoln Airport"
+  },
+  {
+    "airport_id": 13871,
+    "city": "Omaha",
+    "state": "NE",
+    "name": "Eppley Airfield"
+  },
+  {
+    "airport_id": 10558,
+    "city": "Scottsbluff",
+    "state": "NE",
+    "name": "Western Neb. Regional/William B. Heilig Field"
+  },
+  {
+    "airport_id": 13296,
+    "city": "Manchester",
+    "state": "NH",
+    "name": "Manchester-Boston Regional"
+  },
+  {
+    "airport_id": 10158,
+    "city": "Atlantic City",
+    "state": "NJ",
+    "name": "Atlantic City International"
+  },
+  {
+    "airport_id": 11618,
+    "city": "Newark",
+    "state": "NJ",
+    "name": "Newark Liberty International"
+  },
+  {
+    "airport_id": 15356,
+    "city": "Trenton",
+    "state": "NJ",
+    "name": "Trenton Mercer"
+  },
+  {
+    "airport_id": 10140,
+    "city": "Albuquerque",
+    "state": "NM",
+    "name": "Albuquerque International Sunport"
+  },
+  {
+    "airport_id": 11711,
+    "city": "Farmington",
+    "state": "NM",
+    "name": "Four Corners Regional"
+  },
+  {
+    "airport_id": 12177,
+    "city": "Hobbs",
+    "state": "NM",
+    "name": "Lea County Regional"
+  },
+  {
+    "airport_id": 14588,
+    "city": "Roswell",
+    "state": "NM",
+    "name": "Roswell International Air Center"
+  },
+  {
+    "airport_id": 14674,
+    "city": "Santa Fe",
+    "state": "NM",
+    "name": "Santa Fe Municipal"
+  },
+  {
+    "airport_id": 11525,
+    "city": "Elko",
+    "state": "NV",
+    "name": "Elko Regional"
+  },
+  {
+    "airport_id": 12889,
+    "city": "Las Vegas",
+    "state": "NV",
+    "name": "McCarran International"
+  },
+  {
+    "airport_id": 14570,
+    "city": "Reno",
+    "state": "NV",
+    "name": "Reno/Tahoe International"
+  },
+  {
+    "airport_id": 10257,
+    "city": "Albany",
+    "state": "NY",
+    "name": "Albany International"
+  },
+  {
+    "airport_id": 10577,
+    "city": "Binghamton",
+    "state": "NY",
+    "name": "Greater Binghamton/Edwin A. Link Field"
+  },
+  {
+    "airport_id": 10792,
+    "city": "Buffalo",
+    "state": "NY",
+    "name": "Buffalo Niagara International"
+  },
+  {
+    "airport_id": 11537,
+    "city": "Elmira/Corning",
+    "state": "NY",
+    "name": "Elmira/Corning Regional"
+  },
+  {
+    "airport_id": 12391,
+    "city": "Islip",
+    "state": "NY",
+    "name": "Long Island MacArthur"
+  },
+  {
+    "airport_id": 12397,
+    "city": "Ithaca/Cortland",
+    "state": "NY",
+    "name": "Ithaca Tompkins Regional"
+  },
+  {
+    "airport_id": 12478,
+    "city": "New York",
+    "state": "NY",
+    "name": "John F. Kennedy International"
+  },
+  {
+    "airport_id": 12953,
+    "city": "New York",
+    "state": "NY",
+    "name": "LaGuardia"
+  },
+  {
+    "airport_id": 15070,
+    "city": "Newburgh/Poughkeepsie",
+    "state": "NY",
+    "name": "Stewart International"
+  },
+  {
+    "airport_id": 14576,
+    "city": "Rochester",
+    "state": "NY",
+    "name": "Greater Rochester International"
+  },
+  {
+    "airport_id": 15096,
+    "city": "Syracuse",
+    "state": "NY",
+    "name": "Syracuse Hancock International"
+  },
+  {
+    "airport_id": 15431,
+    "city": "Utica/Rome",
+    "state": "NY",
+    "name": "Oneida County"
+  },
+  {
+    "airport_id": 10361,
+    "city": "Watertown",
+    "state": "NY",
+    "name": "Watertown International"
+  },
+  {
+    "airport_id": 12197,
+    "city": "White Plains",
+    "state": "NY",
+    "name": "Westchester County"
+  },
+  {
+    "airport_id": 10874,
+    "city": "Akron",
+    "state": "OH",
+    "name": "Akron-Canton Regional"
+  },
+  {
+    "airport_id": 11193,
+    "city": "Cincinnati",
+    "state": "OH",
+    "name": "Cincinnati/Northern Kentucky International"
+  },
+  {
+    "airport_id": 11042,
+    "city": "Cleveland",
+    "state": "OH",
+    "name": "Cleveland-Hopkins International"
+  },
+  {
+    "airport_id": 11066,
+    "city": "Columbus",
+    "state": "OH",
+    "name": "Port Columbus International"
+  },
+  {
+    "airport_id": 11267,
+    "city": "Dayton",
+    "state": "OH",
+    "name": "James M Cox/Dayton International"
+  },
+  {
+    "airport_id": 15295,
+    "city": "Toledo",
+    "state": "OH",
+    "name": "Toledo Express"
+  },
+  {
+    "airport_id": 12891,
+    "city": "Lawton/Fort Sill",
+    "state": "OK",
+    "name": "Lawton-Fort Sill Regional"
+  },
+  {
+    "airport_id": 13851,
+    "city": "Oklahoma City",
+    "state": "OK",
+    "name": "Will Rogers World"
+  },
+  {
+    "airport_id": 15370,
+    "city": "Tulsa",
+    "state": "OK",
+    "name": "Tulsa International"
+  },
+  {
+    "airport_id": 14489,
+    "city": "Bend/Redmond",
+    "state": "OR",
+    "name": "Roberts Field"
+  },
+  {
+    "airport_id": 11603,
+    "city": "Eugene",
+    "state": "OR",
+    "name": "Mahlon Sweet Field"
+  },
+  {
+    "airport_id": 13024,
+    "city": "Klamath Falls",
+    "state": "OR",
+    "name": "Klamath Falls Airport"
+  },
+  {
+    "airport_id": 13264,
+    "city": "Medford",
+    "state": "OR",
+    "name": "Rogue Valley International - Medford"
+  },
+  {
+    "airport_id": 13964,
+    "city": "North Bend/Coos Bay",
+    "state": "OR",
+    "name": "Southwest Oregon Regional"
+  },
+  {
+    "airport_id": 14057,
+    "city": "Portland",
+    "state": "OR",
+    "name": "Portland International"
+  },
+  {
+    "airport_id": 14871,
+    "city": "Salem",
+    "state": "OR",
+    "name": "McNary Field"
+  },
+  {
+    "airport_id": 10135,
+    "city": "Allentown/Bethlehem/Easton",
+    "state": "PA",
+    "name": "Lehigh Valley International"
+  },
+  {
+    "airport_id": 11577,
+    "city": "Erie",
+    "state": "PA",
+    "name": "Erie International/Tom Ridge Field"
+  },
+  {
+    "airport_id": 13230,
+    "city": "Harrisburg",
+    "state": "PA",
+    "name": "Harrisburg International"
+  },
+  {
+    "airport_id": 14100,
+    "city": "Philadelphia",
+    "state": "PA",
+    "name": "Philadelphia International"
+  },
+  {
+    "airport_id": 14122,
+    "city": "Pittsburgh",
+    "state": "PA",
+    "name": "Pittsburgh International"
+  },
+  {
+    "airport_id": 10434,
+    "city": "Scranton/Wilkes-Barre",
+    "state": "PA",
+    "name": "Wilkes Barre Scranton International"
+  },
+  {
+    "airport_id": 14711,
+    "city": "State College",
+    "state": "PA",
+    "name": "University Park"
+  },
+  {
+    "airport_id": 14583,
+    "city": "Koror",
+    "state": "Palau",
+    "name": "Babelthuap"
+  },
+  {
+    "airport_id": 10732,
+    "city": "Aguadilla",
+    "state": "PR",
+    "name": "Rafael Hernandez"
+  },
+  {
+    "airport_id": 13176,
+    "city": "Mayaguez",
+    "state": "PR",
+    "name": "Eugenio Maria de Hostos"
+  },
+  {
+    "airport_id": 14254,
+    "city": "Ponce",
+    "state": "PR",
+    "name": "Mercedita"
+  },
+  {
+    "airport_id": 14843,
+    "city": "San Juan",
+    "state": "PR",
+    "name": "Luis Munoz Marin International"
+  },
+  {
+    "airport_id": 14307,
+    "city": "Providence",
+    "state": "RI",
+    "name": "Theodore Francis Green State"
+  },
+  {
+    "airport_id": 10994,
+    "city": "Charleston",
+    "state": "SC",
+    "name": "Charleston AFB/International"
+  },
+  {
+    "airport_id": 10868,
+    "city": "Columbia",
+    "state": "SC",
+    "name": "Columbia Metropolitan"
+  },
+  {
+    "airport_id": 11699,
+    "city": "Florence",
+    "state": "SC",
+    "name": "Florence Regional"
+  },
+  {
+    "airport_id": 11996,
+    "city": "Greer",
+    "state": "SC",
+    "name": "Greenville-Spartanburg International"
+  },
+  {
+    "airport_id": 12124,
+    "city": "Hilton Head",
+    "state": "SC",
+    "name": "Hilton Head Airport"
+  },
+  {
+    "airport_id": 13577,
+    "city": "Myrtle Beach",
+    "state": "SC",
+    "name": "Myrtle Beach International"
+  },
+  {
+    "airport_id": 10141,
+    "city": "Aberdeen",
+    "state": "SD",
+    "name": "Aberdeen Regional"
+  },
+  {
+    "airport_id": 14120,
+    "city": "Pierre",
+    "state": "SD",
+    "name": "Pierre Regional"
+  },
+  {
+    "airport_id": 14457,
+    "city": "Rapid City",
+    "state": "SD",
+    "name": "Rapid City Regional"
+  },
+  {
+    "airport_id": 11775,
+    "city": "Sioux Falls",
+    "state": "SD",
+    "name": "Joe Foss Field"
+  },
+  {
+    "airport_id": 15323,
+    "city": "Bristol/Johnson City/Kingsport",
+    "state": "TN",
+    "name": "Tri-Cities Regional TN/VA"
+  },
+  {
+    "airport_id": 10980,
+    "city": "Chattanooga",
+    "state": "TN",
+    "name": "Lovell Field"
+  },
+  {
+    "airport_id": 15412,
+    "city": "Knoxville",
+    "state": "TN",
+    "name": "McGhee Tyson"
+  },
+  {
+    "airport_id": 13244,
+    "city": "Memphis",
+    "state": "TN",
+    "name": "Memphis International"
+  },
+  {
+    "airport_id": 10693,
+    "city": "Nashville",
+    "state": "TN",
+    "name": "Nashville International"
+  },
+  {
+    "airport_id": 12016,
+    "city": "Guam",
+    "state": "TT",
+    "name": "Guam International"
+  },
+  {
+    "airport_id": 14582,
+    "city": "Rota",
+    "state": "TT",
+    "name": "Rota International"
+  },
+  {
+    "airport_id": 14955,
+    "city": "Saipan",
+    "state": "TT",
+    "name": "Francisco C. Ada Saipan International"
+  },
+  {
+    "airport_id": 10136,
+    "city": "Abilene",
+    "state": "TX",
+    "name": "Abilene Regional"
+  },
+  {
+    "airport_id": 10279,
+    "city": "Amarillo",
+    "state": "TX",
+    "name": "Rick Husband Amarillo International"
+  },
+  {
+    "airport_id": 10423,
+    "city": "Austin",
+    "state": "TX",
+    "name": "Austin - Bergstrom International"
+  },
+  {
+    "airport_id": 16440,
+    "city": "Austin",
+    "state": "TX",
+    "name": "Robert Mueller Municipal"
+  },
+  {
+    "airport_id": 10728,
+    "city": "Beaumont/Port Arthur",
+    "state": "TX",
+    "name": "Jack Brooks Regional"
+  },
+  {
+    "airport_id": 10747,
+    "city": "Brownsville",
+    "state": "TX",
+    "name": "Brownsville South Padre Island International"
+  },
+  {
+    "airport_id": 11049,
+    "city": "College Station/Bryan",
+    "state": "TX",
+    "name": "Easterwood Field"
+  },
+  {
+    "airport_id": 11140,
+    "city": "Corpus Christi",
+    "state": "TX",
+    "name": "Corpus Christi International"
+  },
+  {
+    "airport_id": 11259,
+    "city": "Dallas",
+    "state": "TX",
+    "name": "Dallas Love Field"
+  },
+  {
+    "airport_id": 11298,
+    "city": "Dallas/Fort Worth",
+    "state": "TX",
+    "name": "Dallas/Fort Worth International"
+  },
+  {
+    "airport_id": 11415,
+    "city": "Del Rio",
+    "state": "TX",
+    "name": "Del Rio International"
+  },
+  {
+    "airport_id": 11540,
+    "city": "El Paso",
+    "state": "TX",
+    "name": "El Paso International"
+  },
+  {
+    "airport_id": 12206,
+    "city": "Harlingen/San Benito",
+    "state": "TX",
+    "name": "Valley International"
+  },
+  {
+    "airport_id": 11495,
+    "city": "Houston",
+    "state": "TX",
+    "name": "Ellington Field"
+  },
+  {
+    "airport_id": 12266,
+    "city": "Houston",
+    "state": "TX",
+    "name": "George Bush Intercontinental/Houston"
+  },
+  {
+    "airport_id": 12191,
+    "city": "Houston",
+    "state": "TX",
+    "name": "William P Hobby"
+  },
+  {
+    "airport_id": 11982,
+    "city": "Killeen",
+    "state": "TX",
+    "name": "Robert Gray AAF"
+  },
+  {
+    "airport_id": 12319,
+    "city": "Killeen",
+    "state": "TX",
+    "name": "Skylark Field"
+  },
+  {
+    "airport_id": 13061,
+    "city": "Laredo",
+    "state": "TX",
+    "name": "Laredo International"
+  },
+  {
+    "airport_id": 11905,
+    "city": "Longview",
+    "state": "TX",
+    "name": "East Texas Regional"
+  },
+  {
+    "airport_id": 12896,
+    "city": "Lubbock",
+    "state": "TX",
+    "name": "Lubbock Preston Smith International"
+  },
+  {
+    "airport_id": 13158,
+    "city": "Midland/Odessa",
+    "state": "TX",
+    "name": "Midland International"
+  },
+  {
+    "airport_id": 13256,
+    "city": "Mission/McAllen/Edinburg",
+    "state": "TX",
+    "name": "McAllen Miller International"
+  },
+  {
+    "airport_id": 14842,
+    "city": "San Angelo",
+    "state": "TX",
+    "name": "San Angelo Regional/Mathis Field"
+  },
+  {
+    "airport_id": 14683,
+    "city": "San Antonio",
+    "state": "TX",
+    "name": "San Antonio International"
+  },
+  {
+    "airport_id": 15411,
+    "city": "Tyler",
+    "state": "TX",
+    "name": "Tyler Pounds Regional"
+  },
+  {
+    "airport_id": 15569,
+    "city": "Victoria",
+    "state": "TX",
+    "name": "Victoria Regional"
+  },
+  {
+    "airport_id": 10155,
+    "city": "Waco",
+    "state": "TX",
+    "name": "Waco Regional"
+  },
+  {
+    "airport_id": 14960,
+    "city": "Wichita Falls",
+    "state": "TX",
+    "name": "Sheppard AFB/Wichita Falls Municipal"
+  },
+  {
+    "airport_id": 10918,
+    "city": "Cedar City",
+    "state": "UT",
+    "name": "Cedar City Regional"
+  },
+  {
+    "airport_id": 13829,
+    "city": "Ogden",
+    "state": "UT",
+    "name": "Ogden-Hinckley"
+  },
+  {
+    "airport_id": 14314,
+    "city": "Provo",
+    "state": "UT",
+    "name": "Provo Municipal"
+  },
+  {
+    "airport_id": 14869,
+    "city": "Salt Lake City",
+    "state": "UT",
+    "name": "Salt Lake City International"
+  },
+  {
+    "airport_id": 14794,
+    "city": "St. George",
+    "state": "UT",
+    "name": "St George Municipal"
+  },
+  {
+    "airport_id": 10990,
+    "city": "Charlottesville",
+    "state": "VA",
+    "name": "Charlottesville Albemarle"
+  },
+  {
+    "airport_id": 13139,
+    "city": "Lynchburg",
+    "state": "VA",
+    "name": "Lynchburg Regional/Preston Glenn Field"
+  },
+  {
+    "airport_id": 14098,
+    "city": "Newport News/Williamsburg",
+    "state": "VA",
+    "name": "Newport News/Williamsburg International"
+  },
+  {
+    "airport_id": 13931,
+    "city": "Norfolk",
+    "state": "VA",
+    "name": "Norfolk International"
+  },
+  {
+    "airport_id": 14524,
+    "city": "Richmond",
+    "state": "VA",
+    "name": "Richmond International"
+  },
+  {
+    "airport_id": 14574,
+    "city": "Roanoke",
+    "state": "VA",
+    "name": "Roanoke Regional/Woodrum Field"
+  },
+  {
+    "airport_id": 15024,
+    "city": "Charlotte Amalie",
+    "state": "VI",
+    "name": "Cyril E King"
+  },
+  {
+    "airport_id": 15027,
+    "city": "Christiansted",
+    "state": "VI",
+    "name": "Henry E. Rohlsen"
+  },
+  {
+    "airport_id": 10785,
+    "city": "Burlington",
+    "state": "VT",
+    "name": "Burlington International"
+  },
+  {
+    "airport_id": 10666,
+    "city": "Bellingham",
+    "state": "WA",
+    "name": "Bellingham International"
+  },
+  {
+    "airport_id": 13546,
+    "city": "Moses Lake",
+    "state": "WA",
+    "name": "Grant County International"
+  },
+  {
+    "airport_id": 14252,
+    "city": "Pasco/Kennewick/Richland",
+    "state": "WA",
+    "name": "Tri Cities"
+  },
+  {
+    "airport_id": 10559,
+    "city": "Seattle",
+    "state": "WA",
+    "name": "Boeing Field/King County International"
+  },
+  {
+    "airport_id": 14747,
+    "city": "Seattle",
+    "state": "WA",
+    "name": "Seattle/Tacoma International"
+  },
+  {
+    "airport_id": 11884,
+    "city": "Spokane",
+    "state": "WA",
+    "name": "Spokane International"
+  },
+  {
+    "airport_id": 16101,
+    "city": "Yakima",
+    "state": "WA",
+    "name": "Yakima Air Terminal/McAllister Field"
+  },
+  {
+    "airport_id": 10408,
+    "city": "Appleton",
+    "state": "WI",
+    "name": "Outagamie County Regional"
+  },
+  {
+    "airport_id": 11471,
+    "city": "Eau Claire",
+    "state": "WI",
+    "name": "Chippewa Valley Regional"
+  },
+  {
+    "airport_id": 11977,
+    "city": "Green Bay",
+    "state": "WI",
+    "name": "Austin Straubel International"
+  },
+  {
+    "airport_id": 13076,
+    "city": "La Crosse",
+    "state": "WI",
+    "name": "La Crosse Municipal"
+  },
+  {
+    "airport_id": 13485,
+    "city": "Madison",
+    "state": "WI",
+    "name": "Dane County Regional-Truax Field"
+  },
+  {
+    "airport_id": 13342,
+    "city": "Milwaukee",
+    "state": "WI",
+    "name": "General Mitchell International"
+  },
+  {
+    "airport_id": 11203,
+    "city": "Mosinee",
+    "state": "WI",
+    "name": "Central Wisconsin"
+  },
+  {
+    "airport_id": 14520,
+    "city": "Rhinelander",
+    "state": "WI",
+    "name": "Rhinelander/Oneida County"
+  },
+  {
+    "airport_id": 12223,
+    "city": "Ashland",
+    "state": "WV",
+    "name": "Tri-State/Milton J. Ferguson Field"
+  },
+  {
+    "airport_id": 11146,
+    "city": "Charleston/Dunbar",
+    "state": "WV",
+    "name": "Yeager"
+  },
+  {
+    "airport_id": 11027,
+    "city": "Clarksburg/Fairmont",
+    "state": "WV",
+    "name": "North Central West Virginia"
+  },
+  {
+    "airport_id": 13121,
+    "city": "Lewisburg",
+    "state": "WV",
+    "name": "Greenbrier Valley"
+  },
+  {
+    "airport_id": 11122,
+    "city": "Casper",
+    "state": "WY",
+    "name": "Casper/Natrona County International"
+  },
+  {
+    "airport_id": 11233,
+    "city": "Cheyenne",
+    "state": "WY",
+    "name": "Cheyenne Regional/Jerry Olson Field"
+  },
+  {
+    "airport_id": 11097,
+    "city": "Cody",
+    "state": "WY",
+    "name": "Yellowstone Regional"
+  },
+  {
+    "airport_id": 11865,
+    "city": "Gillette",
+    "state": "WY",
+    "name": "Gillette Campbell County"
+  },
+  {
+    "airport_id": 12441,
+    "city": "Jackson",
+    "state": "WY",
+    "name": "Jackson Hole"
+  },
+  {
+    "airport_id": 14543,
+    "city": "Rock Springs",
+    "state": "WY",
+    "name": "Rock Springs Sweetwater County"
+  }
+]
