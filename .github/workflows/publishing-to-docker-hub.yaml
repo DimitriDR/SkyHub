@@ -40,7 +40,7 @@ jobs:
       # J'avais utilisé Git LFS qui était plus simple et pro que
       # cette méthode, mais le quota a été dépassé en deux commits...
       - name: Récupération du fichier flights.json
-        run: sudo apt install python3; pip install gdown; cd db-files; gdown -O flights.json 13hCmrg1U8LbEsTqlm9sBmG8NY9G7SxXn
+        run: sudo apt install python3; pip install gdown; cd db-files; gdown -O flights.json 1F_5FZg5BaoLQErIKZ5S9b21AWc-1DIHc
 
       - name: Compilation vers image Docker
         run: sudo docker build -t dimitridr/skyhub-db:$GITHUB_SHA -f docker/Dockerfile-skyhub-db .
