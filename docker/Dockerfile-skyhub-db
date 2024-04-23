@@ -4,12 +4,12 @@ RUN mkdir -p /data/db/to_be_imported
 
 # On copie les fichiers JSON (les données) dans le conteneur
 COPY db-files/airports.json /data/db/to_be_imported
-# COPY db-files/flights.json /data/db/to_be_imported Pour plus tard
+COPY db-files/flights.json /data/db/to_be_imported
 
 # On importe les données au préalable, l'utilisateur n'a pas à attendre que ce soit OK à chaque démarrage du conteneur
 RUN mongod --fork --logpath /var/log/mongodb.log --bind_ip_all && \
     mongoimport --db skyhub --collection airports --file /data/db/to_be_imported/airports.json --jsonArray && \
-    # mongoimport --db skyhub --collection flights --file /data/db/to_be_imported/flights.json --jsonArray && \ Pour plus tard
+    mongoimport --db skyhub --collection flights --file /data/db/to_be_imported/flights.json --jsonArray && \
     mongod --shutdown
 
 # Démarrage de MongoDB

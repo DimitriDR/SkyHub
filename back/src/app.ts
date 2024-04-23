@@ -14,7 +14,7 @@ const PORT: number = 4000;
 
 // On doit nécessairement demander à l'utilisateur de renseigner le nom du conteneur de la BD pour pouvoir se connecter
 // Par ce biais, on va utiliser le Magic DNS de Docker pour avoir la bonne adresse IP
-const DB_HOSTNAME: string = String(process.env.DB_HOSTNAME)
+const DB_HOSTNAME: string = "localhost" || String(process.env.DB_HOSTNAME)
 
 // Constantes qui ne bougent pas, car aucun intérêt pour l'utilisateur de les changer.
 const DB_PORT: number = 27017;
