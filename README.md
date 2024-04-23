@@ -1,6 +1,6 @@
 # SkyHub
 ## Description
-
+API permettant d'accéder à des données (fictives) sur l'aviation.
 ## Installation
 
 Comme demandé, le projet est disponible sous la forme d'un Docker Compose.
@@ -8,7 +8,7 @@ Un exemple est disponible ici : [docker-compose.yml](docker/docker-compose.yaml)
 En se plaçant à la racine du projet, il est possible de l'exécuter en lançant directement par la commande :
 
 ```bash
-docker-compose -p skyhub -f docker/docker-compose.yaml up
+sudo docker-compose -p skyhub -f docker/docker-compose.yaml up
 ```
 
 Note : `sudo` peut être requis selon la configuration de Docker.

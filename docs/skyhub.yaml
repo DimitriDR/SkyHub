@@ -1,0 +1,270 @@
+openapi: '3.0.2'
+info:
+  title: SkyHub API
+  description: API permettant de récupérer diverses données sur l'aviation.
+  version: '0.0.1'
+  license:
+    name: Licence MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: http://localhost:4000
+    description: Serveur local
+
+tags:
+    - name: flights
+      description: Opérations liées aux vols
+    - name: airports
+      description: Opérations liées aux aéroports
+
+paths:
+  /api/airports:
+    get:
+      summary: Récupérer la liste complète des aéroports
+      tags:
+        - airports
+      responses:
+        '200':
+          description: Une liste de tous les aéroports enregistrés.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Airport'
+    post:
+      summary: Ajouter un aéroport
+      tags:
+        - airports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                city:
+                  type: string
+                  description: Ville où se situe l'aéroport.
+                  example: Washington
+                state:
+                  type: string
+                  description: Code ISO 3166-2 (moins le préfixe « US- ») de l'état où se situe l'aéroport.
+                  example: DC
+                name:
+                  type: string
+                  description: Nom de l'aéroport.
+                  example: Washington Airport
+              required:
+                - city
+                - state
+                - name
+      responses:
+        '201':
+          description: L'aéroport a été ajouté avec succès.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  city:
+                    type: string
+                    example: Washington
+                  state:
+                    type: string
+                    example: DC
+                  name:
+                    type: string
+                    example: Washington Airport
+                  _id:
+                    type: string
+                    example: 5f7b3b7b7b7b7b7b7b7b7b7b
+                  airport_id:
+                    type: integer
+                    example: 93999209
+                  __v:
+                    type: integer
+                    example: 0
+        '400':
+          description: Requête invalide ou erreur critique côté serveur.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Erreur retournée par le serveur : [message d'erreur]."
+    delete:
+      summary: Supprimer un aéroport
+      tags:
+        - airports
+      parameters:
+        - in: query
+          name: airport_id
+          required: true
+          description: Identifiant unique de l'aéroport à supprimer.
+          schema:
+            type: integer
+            example: 93999209
+      responses:
+        '200':
+          description: L'aéroport a été supprimé avec succès.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "L'aéroport a été supprimé avec succès."
+        '404':
+          description: Aéroport non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Aéroport non trouvé."
+        '500':
+          description: Requête invalide.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Requête invalide. Erreur retournée par le serveur : [message d'erreur]."
+    put:
+      summary: Mettre à jour un aéroport
+      tags:
+        - airports
+      parameters:
+        - in: query
+          name: airport_id
+          required: true
+          description: Identifiant unique de l'aéroport à mettre à jour.
+          schema:
+            type: integer
+            example: 93999209
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                city:
+                  type: string
+                  description: Ville où se situe l'aéroport.
+                  example: Washington
+                state:
+                  type: string
+                  description: Code ISO 3166-2 (moins le préfixe « US- ») de l'état où se situe l'aéroport.
+                  example: DC
+                name:
+                  type: string
+                  description: Nom de l'aéroport.
+                  example: Washington Airport
+              required:
+                - city
+                - state
+                - name
+      responses:
+        '200':
+          description: L'aéroport a été mis à jour avec succès.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  city:
+                    type: string
+                    example: Washington
+                  state:
+                    type: string
+                    example: DC
+                  name:
+                    type: string
+                    example: Washington Airport
+                  _id:
+                    type: string
+                    example: 5f7b3b7b7b7b7b7b7b7b7b7b
+                  airport_id:
+                    type: integer
+                    example: 93999209
+                  __v:
+                    type: integer
+                    example: 0
+        '404':
+          description: Aéroport non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Aéroport non trouvé."
+        '400':
+          description: Requête invalide.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Requête invalide. Erreur retournée par le serveur : [message d'erreur]."
+  /api/flights:
+    get:
+      summary: Récupérer la liste complète des vols
+      tags: 
+        - flights
+      responses:
+        '200':
+          description: Une liste de tous les vols enregistrés.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Flight'
+    
+
+components:
+  schemas:
+    Flight:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: ID du vol. Unique.
+          example: 1
+        name:
+          type: string
+          description: Nom du vol.
+          example: "AF123"
+    Airport:
+      type: object
+      properties:
+        airport_id:
+          type: integer
+          description: Identifiant unique de l'aéroport.
+          example: 10165
+        city:
+          type: string
+          description: Ville où se situe l'aéroport.
+          example: Barrow
+        state:
+          type: string
+          description: Code ISO 3166-2 (moins le préfixe US-) de l'état où se situe l'aéroport.
+          example: AK
+        name:
+          type: string
+          description: Nom de l'aéroport.
+          example: Deadhorse Airport
