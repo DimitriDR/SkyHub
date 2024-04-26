@@ -2,8 +2,10 @@
 
 import {Request, Response} from "express";
 import Flight from "../models/flights";
-import {QueryOptions} from "mongoose";
+import {QueryOptions, Schema} from "mongoose";
 import {ObjectId} from "mongodb";
+import Airport from "../models/airports";
+import Flights from "../models/flights";
 
 /**
  * Récupère tous les aéroports
@@ -59,4 +61,46 @@ function getFlightsFilter(req : Request) {
         }
     }
     return queryFilters;
+}
+
+export function add(req: Request, res: Response) {
+    console.log(req.body)
+    let {carrier, origin_id, destination_id, date} = req.body;
+
+    if (!carrier || !origin_id || !destination_id || !date) {
+        res.status(400).json({message: "Requête invalide, il manque des paramètres obligatoires."});
+        return;
+    }
+    console.log(date)
+    let d = new Date(date)
+    console.log(d)
+    let newFlight = new Flight({
+        carrier: carrier,
+        origin_id: origin_id,
+        destination_id: destination_id,
+        date: date
+    });
+
+    console.log('add flight : ', newFlight);
+
+    newFlight.save()
+        .then(savedFlight => {
+            res.status(201).json(savedFlight);
+        })
+        .catch(error => {
+            res.status(400).json({message: "Requête invalide. Erreur retournée par le serveur : " + error.message});
+        });
+}
+
+export function update(req: Request, res: Response) {
+    const id = req.params.id;
+    const flight = req.body;
+
+    Flight.findByIdAndUpdate(id, flight, {new: true})
+        .then(updatedFlight => {
+            res.json(updatedFlight);
+        })
+        .catch(error => {
+            res.status(400).json({message: "Requête invalide. Erreur retournée par le serveur : " + error.message});
+        });
 }

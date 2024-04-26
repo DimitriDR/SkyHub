@@ -16,7 +16,7 @@ const AirportSchema: Schema = new Schema({
     city: {type: String, required: true},
     state: {type: String, required: true},
     name: {type: String, required: true}
-});
+}, { versionKey: false });
 
 // Créez le modèle Mongoose en utilisant le schéma
 export const Airport = mongoose.model<IAirport>('airports', AirportSchema, 'airports');

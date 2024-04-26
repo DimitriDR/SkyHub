@@ -3,6 +3,7 @@ import {Request, Response} from "express";
 import Airport from "../models/airports";
 import {getAirports} from "../controllers/airports-controller";
 import {QueryOptions} from "mongoose";
+import airports from "../models/airports";
 
 /**
  * Récupère tous les aéroports
@@ -79,11 +80,11 @@ export function add(req: Request, res: Response) {
     console.log(req.body)
     // console.log(req)
     const newAirport = new Airport(req.body);
+    //TODO joi ne pas autoriser d'ID, gérer de notre côté + vérifier que id généré n'existe pas déjà
 
     newAirport._id = randomNumberId();
 
     console.log('addAirport ', newAirport);
-
     newAirport.save()
         .then(savedAirport => {
             res.status(201).json(savedAirport);

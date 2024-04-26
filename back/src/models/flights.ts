@@ -12,7 +12,7 @@ const FlightSchema: Schema = new Schema({
     origin_id: { type: Number, required: true },
     destination_id: { type: Number, required: true },
     date: { type: Date, required: true }
-});
+}, { versionKey: false });
 
 const Flight = mongoose.model<IFlight>('flights', FlightSchema, 'flights');
 
