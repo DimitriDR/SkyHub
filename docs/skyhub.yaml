@@ -1,8 +1,8 @@
 openapi: '3.0.2'
 info:
   title: SkyHub API
-  description: API permettant de récupérer diverses données sur l'aviation.
-  version: '0.0.1'
+  description: API permettant de récupérer diverses données (fictives) sur l'aviation.
+  version: '0.0.2'
   license:
     name: Licence MIT
     url: https://opensource.org/licenses/MIT
@@ -12,17 +12,47 @@ servers:
     description: Serveur local
 
 tags:
-    - name: flights
-      description: Opérations liées aux vols
-    - name: airports
-      description: Opérations liées aux aéroports
+  - name: flights
+    description: Opérations liées aux vols
+  - name: airports
+    description: Opérations liées aux aéroports
 
 paths:
   /api/airports:
+    # QA passed
     get:
       summary: Récupérer la liste complète des aéroports
       tags:
         - airports
+      parameters:
+        - in: query
+          name: id
+          required: false
+          description: Identifiant unique de l'aéroport.
+          schema:
+            type: integer
+            example: 10165
+        - in: query
+          name: city
+          required: false
+          description: Ville où se situe l'aéroport.
+          schema:
+            type: string
+            example: Barrow
+        - in: query
+          name: state
+          required: false
+          description: Code ISO 3166-2 (moins le préfixe « US- ») de l'état où se situe l'aéroport.
+          schema:
+            type: string
+            example: CA
+        - in: query
+          name: name
+          required: false
+          description: Nom de l'aéroport.
+          schema:
+            type: string
+            example: San Francisco International
       responses:
         '200':
           description: Une liste de tous les aéroports enregistrés.
@@ -32,6 +62,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Airport'
+    # QA passed
     post:
       summary: Ajouter un aéroport
       tags:
@@ -77,14 +108,8 @@ paths:
                     type: string
                     example: Washington Airport
                   _id:
-                    type: string
-                    example: 5f7b3b7b7b7b7b7b7b7b7b7b
-                  airport_id:
                     type: integer
                     example: 93999209
-                  __v:
-                    type: integer
-                    example: 0
         '400':
           description: Requête invalide ou erreur critique côté serveur.
           content:
@@ -95,13 +120,15 @@ paths:
                   message:
                     type: string
                     example: "Erreur retournée par le serveur : [message d'erreur]."
+  /api/airports/{id}:
+    # QA passed
     delete:
       summary: Supprimer un aéroport
       tags:
         - airports
       parameters:
-        - in: query
-          name: airport_id
+        - in: path
+          name: id
           required: true
           description: Identifiant unique de l'aéroport à supprimer.
           schema:
@@ -143,8 +170,8 @@ paths:
       tags:
         - airports
       parameters:
-        - in: query
-          name: airport_id
+        - in: path
+          name: id
           required: true
           description: Identifiant unique de l'aéroport à mettre à jour.
           schema:
@@ -222,7 +249,7 @@ paths:
   /api/flights:
     get:
       summary: Récupérer la liste complète des vols
-      tags: 
+      tags:
         - flights
       responses:
         '200':
@@ -233,22 +260,33 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Flight'
-    
+
 
 components:
   schemas:
     Flight:
       type: object
       properties:
-        id:
+        _id:
+          type: string
+          description: ID du vol. Unique.
+          example: "662a6d05a9206857001ad3da"
+        carrier:
+          type: string
+          description: Nom de la compagnie aérienne.
+          example: "DL"
+        origin_id:
           type: integer
           format: int32
-          description: ID du vol. Unique.
-          example: 1
-        name:
+          description: ID de l'aéroport de départ
+        destination_id:
+          type: integer
+          format: int3
+          description: ID de l'aéroport d'arrivée
+        date:
           type: string
-          description: Nom du vol.
-          example: "AF123"
+          description: Date de départ du vol.
+          example: "2025-03-23T23:00:00.000Z"
     Airport:
       type: object
       properties:
