@@ -14,7 +14,7 @@ import Flights from "../models/flights";
  */
 export async function getAll(req: Request, res: Response) {
     console.log('getAllAirports');
-
+    //TODO valider date 2024-12-31 par exemple
     let queryFilters = getFlightsFilter(req);
     console.log('queryFilters', queryFilters);
 
@@ -102,5 +102,43 @@ export function update(req: Request, res: Response) {
         })
         .catch(error => {
             res.status(400).json({message: "Requête invalide. Erreur retournée par le serveur : " + error.message});
+        });
+}
+
+export function deleteFlightFromDB(req: Request, res: Response) {
+    const id = req.params.id;
+    Flight.findByIdAndDelete(id)
+        .then(() => {
+            res.status(204).send();
+        })
+        .catch(error => {
+            res.status(400).json({message: "Requête invalide. Erreur retournée par le serveur : " + error.message});
+        });
+}
+
+/**
+ * Récupère les informations sur un vol par son identifiant
+ * @param {Request} req L'objet de la requête envoyé par le client
+ * @param {Response} res L'objet de la réponse renvoyé par le serveur
+ *
+ * @route GET /flights/{id}
+ *
+ * @returns {Object} 200 - L'aéroport trouvé
+ * @returns {Object} 500 - Erreur retournée par le serveur
+ *
+ * @throws {Error} 500 - Erreur retournée par le serveur
+ */
+export function getById(req: Request, res: Response): void {
+    const {id} = req.params;
+
+    Flight.findById(id)
+        .then(airport => {
+            if (!airport) {
+                return res.status(404).json({message: "Vol non trouvé."});
+            }
+            res.status(200).json(airport);
+        })
+        .catch(error => {
+            res.status(500).json({message: error.message});
         });
 }

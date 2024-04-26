@@ -179,22 +179,3 @@ export function getById(req: Request, res: Response): void {
             res.status(500).json({message: error.message});
         });
 }
-
-// GET /airports/:id/flights - Récupérer tous les vols pour un aéroport
-// Vous devrez implémenter le modèle et la logique pour récupérer les vols liés à un aéroport.
-export function getFlightsForAirport(req: Request, res: Response) {
-    const {id} = req.params;
-    // La logique pour récupérer les vols liés à l'aéroport sera implémentée ici
-};
-
-// GET /airports/:id/flights?date= - Récupérer tous les vols d'un aéroport pour une date donnée
-// Vous devrez implémenter le modèle et la logique pour récupérer les vols liés à un aéroport à une date spécifique.
-export const getFlightsForAirportByDate = (req: Request, res: Response) => {
-    const {id} = req.params;
-    const {date} = req.query;
-    //TODO faire une fonction qui prend juste un id aéroport et une date et qui retourne les vols
-    //
-
-    // La logique pour récupérer les vols liés à l'aéroport pour une date spécifique sera implémentée ici
-};
-
