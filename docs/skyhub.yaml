@@ -2,7 +2,7 @@ openapi: '3.0.2'
 info:
   title: SkyHub API
   description: API permettant de récupérer diverses données (fictives) sur l'aviation.
-  version: '0.0.2'
+  version: '0.0.3'
   license:
     name: Licence MIT
     url: https://opensource.org/licenses/MIT
@@ -120,6 +120,31 @@ paths:
                   message:
                     type: string
                     example: "Erreur retournée par le serveur : [message d'erreur]."
+  /api/airports/{id}/name:
+    get:
+      summary: Récupérer le nom de l'aéroport par un ID
+      tags:
+        - airports
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Identifiant unique de l'aéroport dont on veut récupérer le nom.
+          example: 14771
+      responses:
+        200:
+          description: Le nom de l'aéroport correspond à l'ID s'affiche
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: "San Francisco International"
+
   /api/airports/{id}:
     # QA passed
     delete:
@@ -246,6 +271,7 @@ paths:
                   message:
                     type: string
                     example: "Requête invalide. Erreur retournée par le serveur : [message d'erreur]."
+
   /api/flights:
     get:
       summary: Récupérer la liste complète des vols
@@ -260,8 +286,252 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Flight'
+      parameters:
+        - in: query
+          name: id
+          required: false
+          description: Identifiant unique du vol.
+          schema:
+            type: string
+            example: "662a6d05a9206857001ad3da"
+        - in: query
+          name: carrier
+          required: false
+          description: Nom de la compagnie aérienne.
+          schema:
+            type: string
+            example: "DL"
+        - in: query
+          name: origin_id
+          required: false
+          description: ID de l'aéroport de départ.
+          schema:
+            type: integer
+            example: 13487
+        - in: query
+          name: destination_id
+          required: false
+          description: ID de l'aéroport d'arrivée.
+          schema:
+            type: integer
+            example: 14771
+        - in: query
+          name: date
+          required: false
+          description: Date de départ du vol au format ISO 8601 (moins la partie avec l'heure).
+          schema:
+            type: string
+            example: "2025-03-23"
+    post:
+      summary: Ajouter un vol
+      tags:
+        - flights
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                carrier:
+                  type: string
+                  description: Transporteur
+                  example: DL
+                origin_id:
+                  type: integer
+                  description: ID de l'aéroport de départ
+                  example: 12000
+                destination_id:
+                  type: integer
+                  description: ID de l'aéroport d'arrivée
+                  example: 13000
+                date:
+                  type: string
+                  description: Date au format ISO 8601.
+                  example: "2025-07-14T12:00:00.000Z"
+              required:
+                - carrier
+                - origin_id
+                - destination_id
+                - date
+      responses:
+        '201':
+          description: L'aéroport a été ajouté avec succès.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  carrier:
+                    type: string
+                    example: DL
+                  origin_id:
+                    type: string
+                    example: 12000
+                  destination_id:
+                    type: string
+                    example: 13000
+                  date:
+                    type: string
+                    example: "2025-07-14T12:00:00.000Z"
+                  _id:
+                    type: string
+                    example: "662bc0ede506d52f51421275"
+        '400':
+          description: Requête invalide côté client
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Requête invalide, il manque des paramètres obligatoires."
+    put:
+      summary: Mettre à jour un vol
+      tags:
+        - flights
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                carrier:
+                  type: string
+                  description: Transporteur
+                  example: DL
+                origin_id:
+                  type: integer
+                  description: ID de l'aéroport de départ
+                  example: 12000
+                destination_id:
+                  type: integer
+                  description: ID de l'aéroport d'arrivée
+                  example: 13000
+                date:
+                  type: string
+                  description: Date au format ISO 8601.
+                  example: "2025-07-14T12:00:00.000Z"
+              required:
+                - carrier
+                - origin_id
+                - destination_id
+                - date
+      responses:
+        '201':
+          description: Le vol a été mis à jour avec succès
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  carrier:
+                    type: string
+                    example: DL
+                  origin_id:
+                    type: string
+                    example: 12000
+                  destination_id:
+                    type: string
+                    example: 13000
+                  date:
+                    type: string
+                    example: "2025-07-14T12:00:00.000Z"
+                  _id:
+                    type: string
+                    example: "662bc0ede506d52f51421275"
+        '400':
+          description: Requête invalide côté client
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Requête invalide, il manque des paramètres obligatoires."
 
-
+  /api/flights/{id}:
+    get:
+      summary: Récupérer un vol
+      tags:
+        - flights
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Identifiant unique du vol à récupérer.
+          schema:
+            type: string
+            example: "662a6d05a9206857001ad3da"
+      responses:
+        '200':
+          description: Le vol a été supprimé.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flight'
+        '404':
+          description: Vol non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Vol non trouvé."
+        '500':
+          description: Requête invalide.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "[message d'erreur]."
+    delete:
+      summary: Supprimer un vol
+      tags:
+        - flights
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Identifiant unique du vol à supprimer.
+          schema:
+            type: string
+            example: "662a6d05a9206857001ad3da"
+      responses:
+        '200':
+          description: Le vol a été trouvé.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flight'
+        '404':
+          description: Vol non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Vol non trouvé."
+        '500':
+          description: Requête invalide.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "[message d'erreur]."
 components:
   schemas:
     Flight:
