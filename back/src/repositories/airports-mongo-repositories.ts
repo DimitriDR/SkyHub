@@ -116,6 +116,7 @@ export function update(req: Request, res: Response): void {
             if (!updatedAirport) {
                 return res.status(404).json({message: "Aéroport non trouvé."});
             }
+            console.log(updatedAirport)
             res.status(201).json(updatedAirport);
         })
         .catch(error => {
