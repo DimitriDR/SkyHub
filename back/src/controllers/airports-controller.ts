@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import {add, deleteAirportFromDB, getAll, getById, update} from "../repositories/airports-mongo-repositories";
+import {add, deleteAirportFromDB, getAll, getById, getName, update} from "../repositories/airports-mongo-repositories";
 
 export async function getAirports(req : Request, res : Response) {
     try {
@@ -23,6 +23,11 @@ export async function addAirport(req: Request, res: Response) {
 export async function updateAirport(req: Request, res: Response) {
     console.log('updateAirport')
     return update(req, res);
+}
+
+export async function getAirportName(req: Request, res: Response) {
+    console.log('updateAirport')
+    return getName(req, res);
 }
 
 export async function getAirportById(req: Request, res: Response) {

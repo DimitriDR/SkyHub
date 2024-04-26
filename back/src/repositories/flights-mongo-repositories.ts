@@ -1,11 +1,7 @@
-//TODO interaction avec la base de données
-
 import {Request, Response} from "express";
 import Flight from "../models/flights";
 import {QueryOptions, Schema} from "mongoose";
 import {ObjectId} from "mongodb";
-import Airport from "../models/airports";
-import Flights from "../models/flights";
 
 /**
  * Récupère tous les aéroports

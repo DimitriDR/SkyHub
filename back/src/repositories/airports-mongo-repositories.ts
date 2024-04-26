@@ -180,3 +180,23 @@ export function getById(req: Request, res: Response): void {
             res.status(500).json({message: error.message});
         });
 }
+
+/**
+ * Récupère le nom d'un aéroport par son identifiant
+ * @param req
+ * @param res
+ */
+export function getName(req : Request, res : Response) {
+    const {id} = req.params;
+    console.log('getName', id)
+    Airport.findById(id)
+        .then(airport => {
+            if (!airport) {
+                return res.status(404).json({message: "Aéroport non trouvé."});
+            }
+            res.status(200).json({name : airport.name});
+        })
+        .catch(error => {
+            res.status(500).json({message: error.message});
+        });
+}
