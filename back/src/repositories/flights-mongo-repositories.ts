@@ -94,7 +94,10 @@ export function update(req: Request, res: Response) {
 
     Flight.findByIdAndUpdate(id, flight, {new: true})
         .then(updatedFlight => {
-            res.json(updatedFlight);
+            if (!updatedFlight) {
+                return res.status(404).json({message: "Vol non trouvé."});
+            }
+            res.status(200).json(updatedFlight);
         })
         .catch(error => {
             res.status(400).json({message: "Requête invalide. Erreur retournée par le serveur : " + error.message});

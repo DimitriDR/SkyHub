@@ -11,6 +11,7 @@ import {getName} from "../repositories/airports-mongo-repositories";
 
 const router: Router = express.Router();
 router.get('/', getAirports);
+router.get('/:id', getAirportById);
 router.delete('/:id', deleteAirport);
 router.post('/', addAirport);
 router.put('/:id', updateAirport);
