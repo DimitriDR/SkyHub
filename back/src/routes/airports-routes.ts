@@ -8,13 +8,18 @@ import {
     updateAirport
 } from '../controllers/airports-controller';
 import {getName} from "../repositories/airports-mongo-repositories";
+import {validate} from "../middlewares/validator";
 
 const router: Router = express.Router();
+
 router.get('/', getAirports);
 router.get('/:id', getAirportById);
-router.delete('/:id', deleteAirport);
-router.post('/', addAirport);
-router.put('/:id', updateAirport);
 router.get('/:id/name', getName);
+
+router.post('/', validate('airportRequestBody'), addAirport);
+
+router.put('/:id', validate('airportRequestBody'), updateAirport);
+
+router.delete('/:id', deleteAirport);
 
 export default router;

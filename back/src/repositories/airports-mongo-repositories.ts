@@ -1,9 +1,8 @@
 import {Request, Response} from "express";
 
 import Airport from "../models/airports";
-import {getAirports} from "../controllers/airports-controller";
 import {QueryOptions} from "mongoose";
-import airports from "../models/airports";
+import {validateSchema} from "../middlewares/validator";
 
 /**
  * Récupère tous les aéroports
@@ -30,10 +29,21 @@ export async function getAll(req: Request, res: Response) {
         options.skip = skip;
     }
 
-    Airport.find(queryFilters, null, options).then((airports) => {
-        res.send(airports);
+    // lean -> retourne un objet javascript simple sans les ajouts de mongoose
+    Airport.find(queryFilters, null, options).lean().then((airports) => {
+        // let a = { //Pour tester la validation
+        //     ddd : "test"
+        // }
+
+        const validate = validateSchema('airportResponse', airports);
+        if (validate.error) {
+            console.log(validate.error);
+            return res.status(500).send({message : "Une erreur est survenue."});
+        } else {
+            res.send(airports);
+        }
     }).catch((error) => {
-        res.status(500).send(error);  // Properly handle errors with a status code
+        res.status(500).send(error);
     });
 }
 

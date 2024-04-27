@@ -1,7 +1,8 @@
 import {Request, Response} from "express";
 import Flight from "../models/flights";
-import {QueryOptions, Schema} from "mongoose";
+import {QueryOptions} from "mongoose";
 import {ObjectId} from "mongodb";
+import {validateSchema} from "../middlewares/validator";
 
 /**
  * Récupère tous les aéroports
@@ -9,7 +10,6 @@ import {ObjectId} from "mongodb";
  * @param {Response} res L'objet de la réponse renvoyé par le serveur
  */
 export async function getAll(req: Request, res: Response) {
-    console.log('getAllAirports');
     //TODO valider date 2024-12-31 par exemple
     let queryFilters = getFlightsFilter(req);
     console.log('queryFilters', queryFilters);
@@ -28,7 +28,14 @@ export async function getAll(req: Request, res: Response) {
         options.skip = skip;
     }
 
-    Flight.find(queryFilters, null, options).then((flights) => {
+    Flight.find(queryFilters, null, options).lean().then((flights) => {
+        const validate = validateSchema('flightResponse', flights);
+        if (validate.error) {
+            console.log(validate.error);
+            return res.status(500).send({message : "Une erreur est survenue."});
+        } else {
+            res.status(200).send(flights);
+        }
         res.send(flights);
     }).catch((error) => {
         res.status(500).send(error);  // Properly handle errors with a status code
@@ -63,10 +70,12 @@ export function add(req: Request, res: Response) {
     console.log(req.body)
     let {carrier, origin_id, destination_id, date} = req.body;
 
+    // TODO à retirer car joi valide déjà les champs
     if (!carrier || !origin_id || !destination_id || !date) {
         res.status(400).json({message: "Requête invalide, il manque des paramètres obligatoires."});
         return;
     }
+
     console.log(date)
     let d = new Date(date)
     console.log(d)
