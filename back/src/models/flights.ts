@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
-interface IFlight extends Document {
+export interface IFlight extends Document {
     carrier: string;
     origin_id: number;
     destination_id: number;
@@ -14,6 +14,4 @@ const FlightSchema: Schema = new Schema({
     date: { type: Date, required: true }
 }, { versionKey: false });
 
-const Flight = mongoose.model<IFlight>('flights', FlightSchema, 'flights');
-
-export default Flight;
+export const Flight = mongoose.model<IFlight>('flights', FlightSchema, 'flights');

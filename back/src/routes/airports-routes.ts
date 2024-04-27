@@ -3,18 +3,17 @@ import express from 'express';
 import {
     addAirport,
     deleteAirport,
-    getAirportById,
+    getAirportById, getAirportName,
     getAirports,
     updateAirport
 } from '../controllers/airports-controller';
-import {getName} from "../repositories/airports-mongo-repositories";
 import {validate} from "../middlewares/validator";
 
 const router: Router = express.Router();
 
 router.get('/', getAirports);
 router.get('/:id', getAirportById);
-router.get('/:id/name', getName);
+router.get('/:id/name', getAirportName);
 
 router.post('/', validate('airportRequestBody'), addAirport);
 

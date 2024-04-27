@@ -1,27 +1,47 @@
 import { Request, Response } from 'express';
 import {getAll, add, update, deleteFlightFromDB, getById} from "../repositories/flights-mongo-repositories";
 
-export async function getFlights(req : Request, res : Response) {
-    console.log('getFlights');
-    return getAll(req, res);
+export function getFlights(req : Request, res : Response) {
+    try {
+        console.log('getFlights');
+        return getAll(req, res);
+    } catch (e) {
+        res.status(500).send("Une erreur est survenue.");
+    }
 }
 
-export async function getFlightById(req : Request, res : Response) {
-    console.log('getFlightsById');
-    return getById(req, res);
+export function getFlightById(req : Request, res : Response) {
+    try {
+        console.log('getFlightsById');
+        return getById(req, res);
+    } catch (e) {
+        res.status(500).send("Une erreur est survenue.");
+    }
 }
 
-export async function createFlight(req : Request, res : Response) {
-    console.log('createFlight');
-    return add(req, res);
+export function createFlight(req : Request, res : Response) {
+    try {
+        console.log('createFlight');
+        return add(req, res);
+    } catch (e) {
+        res.status(500).send("Une erreur est survenue.");
+    }
 }
 
-export async function updateFight(req : Request, res : Response) {
-    console.log('updateFlight');
-    return update(req, res);
+export function updateFight(req : Request, res : Response) {
+    try {
+        console.log('updateFlight');
+        return update(req, res);
+    } catch (e) {
+        res.status(500).send("Une erreur est survenue.");
+    }
 }
 
-export async function deleteFlight(req : Request, res : Response) {
-    console.log('deleteFlight');
-    return deleteFlightFromDB(req, res);
+export function deleteFlight(req : Request, res : Response) {
+    try {
+        console.log('deleteFlight');
+        return deleteFlightFromDB(req, res);
+    } catch (e) {
+        res.status(500).send("Une erreur est survenue.");
+    }
 }

@@ -1,8 +1,8 @@
 import {Request, Response} from "express";
-import Flight from "../models/flights";
 import {QueryOptions} from "mongoose";
 import {ObjectId} from "mongodb";
 import {validateSchema} from "../middlewares/validator";
+import {Flight} from "../models/flights";
 
 /**
  * Récupère tous les aéroports
@@ -10,7 +10,6 @@ import {validateSchema} from "../middlewares/validator";
  * @param {Response} res L'objet de la réponse renvoyé par le serveur
  */
 export async function getAll(req: Request, res: Response) {
-    //TODO valider date 2024-12-31 par exemple
     let queryFilters = getFlightsFilter(req);
     console.log('queryFilters', queryFilters);
 
@@ -38,7 +37,8 @@ export async function getAll(req: Request, res: Response) {
         }
         res.send(flights);
     }).catch((error) => {
-        res.status(500).send(error);  // Properly handle errors with a status code
+        console.error(error);
+        res.status(500).send({message : "Une erreur est survenue."});  // Properly handle errors with a status code
     });
 }
 
@@ -67,34 +67,27 @@ function getFlightsFilter(req : Request) {
 }
 
 export function add(req: Request, res: Response) {
-    console.log(req.body)
-    let {carrier, origin_id, destination_id, date} = req.body;
+    let newFlight = new Flight(req.body);
 
-    // TODO à retirer car joi valide déjà les champs
-    if (!carrier || !origin_id || !destination_id || !date) {
-        res.status(400).json({message: "Requête invalide, il manque des paramètres obligatoires."});
-        return;
-    }
-
-    console.log(date)
-    let d = new Date(date)
-    console.log(d)
-    let newFlight = new Flight({
-        carrier: carrier,
-        origin_id: origin_id,
-        destination_id: destination_id,
-        date: date
+    Flight.exists({
+        carrier: newFlight.carrier,
+        origin_id: newFlight.origin_id,
+        destination_id: newFlight.destination_id,
+        date: newFlight.date
+    }).then((exists) => {
+        if (exists) {
+            return res.status(400).json({message: "Le vol est déjà planifié."});
+        }else {
+            newFlight.save()
+                .then(savedFlight => {
+                    res.status(201).json(savedFlight);
+                })
+                .catch(error => {
+                    console.error(error);
+                    res.status(500).json({message: "Une erreur inattendue est survenue."});
+                });
+        }
     });
-
-    console.log('add flight : ', newFlight);
-
-    newFlight.save()
-        .then(savedFlight => {
-            res.status(201).json(savedFlight);
-        })
-        .catch(error => {
-            res.status(400).json({message: "Requête invalide. Erreur retournée par le serveur : " + error.message});
-        });
 }
 
 export function update(req: Request, res: Response) {
@@ -109,7 +102,8 @@ export function update(req: Request, res: Response) {
             res.status(200).json(updatedFlight);
         })
         .catch(error => {
-            res.status(400).json({message: "Requête invalide. Erreur retournée par le serveur : " + error.message});
+            console.error(error)
+            res.status(400).json({message: "Requête invalide."});
         });
 }
 
@@ -120,7 +114,8 @@ export function deleteFlightFromDB(req: Request, res: Response) {
             res.status(204).send();
         })
         .catch(error => {
-            res.status(400).json({message: "Requête invalide. Erreur retournée par le serveur : " + error.message});
+            console.error(error);
+            res.status(400).json({message: "Requête invalide."});
         });
 }
 
@@ -147,6 +142,7 @@ export function getById(req: Request, res: Response): void {
             res.status(200).json(airport);
         })
         .catch(error => {
-            res.status(500).json({message: error.message});
+            console.error(error);
+            res.status(500).json({message: "Une erreur est survenue."});
         });
 }

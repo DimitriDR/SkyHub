@@ -10,8 +10,6 @@ import {validateSchema} from "../middlewares/validator";
  * @param {Response} res L'objet de la réponse renvoyé par le serveur
  */
 export async function getAll(req: Request, res: Response) {
-    console.log('getAllAirports');
-
     let queryFilters = getAirportsFilters(req);
     console.log('queryFilters', queryFilters);
 
@@ -34,7 +32,6 @@ export async function getAll(req: Request, res: Response) {
         // let a = { //Pour tester la validation
         //     ddd : "test"
         // }
-
         const validate = validateSchema('airportResponse', airports);
         if (validate.error) {
             console.log(validate.error);
@@ -43,7 +40,8 @@ export async function getAll(req: Request, res: Response) {
             res.send(airports);
         }
     }).catch((error) => {
-        res.status(500).send(error);
+        console.error(error);
+        res.status(500).send({message : "Une erreur est survenue."});
     });
 }
 
@@ -66,15 +64,6 @@ function getAirportsFilters(req : Request) {
 
 
 /**
- * Génère un identifiant aléatoire entre 100000 et 99999999 pour
- * un aéroport pour garder la même structure que les données extraites du jeu de données.
- * @returns {number} Un identifiant aléatoire
- */
-function randomNumberId(): number {
-    return Math.floor(Math.random() * (99999999 - 100000 + 1)) + 100000;
-}
-
-/**
  * Ajoute un aéroport
  * @param {Request} req L'objet de la requête
  * @param {Response} res L'objet de la réponse
@@ -87,21 +76,27 @@ function randomNumberId(): number {
  * @throws {Error} 400 - Erreur retournée par le serveur
  */
 export function add(req: Request, res: Response) {
-    console.log(req.body)
     // console.log(req)
     const newAirport = new Airport(req.body);
-    //TODO joi ne pas autoriser d'ID, gérer de notre côté + vérifier que id généré n'existe pas déjà
 
-    newAirport._id = randomNumberId();
-
-    console.log('addAirport ', newAirport);
-    newAirport.save()
-        .then(savedAirport => {
-            res.status(201).json(savedAirport);
-        })
-        .catch(error => {
-            res.status(400).json({message: "Requête invalide. Erreur retournée par le serveur : " + error.message});
-        });
+    Airport.exists({
+        name: newAirport.name,
+        city: newAirport.city,
+        state: newAirport.state}
+    ).then((exists) => {
+        if (exists) {
+            return res.status(400).json({message: "Cet aéroport existe déjà."});
+        } else {
+            newAirport.save()
+                .then(savedAirport => {
+                    res.status(201).json(savedAirport);
+                })
+                .catch(error => {
+                    console.error(error);
+                    res.status(500).json({message: "Une erreur inattendue est survenue."});
+                });
+        }
+    });
 }
 
 /**
@@ -130,7 +125,8 @@ export function update(req: Request, res: Response): void {
             res.status(201).json(updatedAirport);
         })
         .catch(error => {
-            res.status(400).json({message: "Requête invalide. Erreur retournée par le serveur : " + error.message});
+            console.error(error);
+            res.status(400).json({message: "Requête invalide."});
         });
 }
 
@@ -160,7 +156,8 @@ export function deleteAirportFromDB(req: Request, res: Response): void {
             res.status(200).json({message: "Aéroport supprimé avec succès."});
         })
         .catch(error => {
-            res.status(500).json({message: "Erreur retournée par le serveur : " + error.message});
+            console.error(error);
+            res.status(500).json({message: "Une erreur est survenue."});
         });
 }
 
@@ -187,7 +184,8 @@ export function getById(req: Request, res: Response): void {
             res.status(200).json(airport);
         })
         .catch(error => {
-            res.status(500).json({message: error.message});
+            console.error(error);
+            res.status(500).json({message: "Une erreur est survenue."});
         });
 }
 
@@ -207,6 +205,7 @@ export function getName(req : Request, res : Response) {
             res.status(200).json({name : airport.name});
         })
         .catch(error => {
-            res.status(500).json({message: error.message});
+            console.error(error);
+            res.status(500).json({message: "Une erreur est survenue."});
         });
 }
