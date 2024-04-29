@@ -1,4 +1,4 @@
-import express, {Express} from 'express';
+import express, {Express, NextFunction, Request, Response} from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import routes from './index'; // Assuming index.ts exports the routes
@@ -31,12 +31,17 @@ async function startServer() {
         }).catch((error) => {
             console.error(`[ERREUR] Erreur lors de la connexion à la MongoDB : ${error}`);
         });
-        // middleware - before routes
+        // middlewares - before routes
         app.use(express.json());
         app.use(express.urlencoded({extended: false}));
 
         // Routes
         app.use('/api', routes);
+
+        // Gère toute URL incorrecte : Not Found
+        app.use((req : Request, res : Response, next: NextFunction) => {
+            res.status(404).send({message : 'L\'URL demandée n\'existe pas.'});
+        });
 
         // Démarrage du serveur
         const server = app.listen(PORT, (): void => {

@@ -35,10 +35,9 @@ export async function getAll(req: Request, res: Response) {
         } else {
             res.status(200).send(flights);
         }
-        res.send(flights);
     }).catch((error) => {
         console.error(error);
-        res.status(500).send({message : "Une erreur est survenue."});  // Properly handle errors with a status code
+        res.status(500).send({message : "Une erreur inattendue est survenue."});  // Properly handle errors with a status code
     });
 }
 

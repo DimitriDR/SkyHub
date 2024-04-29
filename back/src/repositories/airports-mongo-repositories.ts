@@ -37,11 +37,11 @@ export async function getAll(req: Request, res: Response) {
             console.log(validate.error);
             return res.status(500).send({message : "Une erreur est survenue."});
         } else {
-            res.send(airports);
+            res.status(200).send(airports);
         }
     }).catch((error) => {
         console.error(error);
-        res.status(500).send({message : "Une erreur est survenue."});
+        res.status(500).send({message : "Une erreur inattendue est survenue."});
     });
 }
 
@@ -71,9 +71,9 @@ function getAirportsFilters(req : Request) {
  * @route POST /airports
  *
  * @returns {Object} 201 - L'aéroport ajouté
- * @returns {Object} 400 - Requête invalide
+ * @returns {Object} 409 - La ressource existe déjà
  *
- * @throws {Error} 400 - Erreur retournée par le serveur
+ * @throws {Error} 500 - Erreur non géré par le serveur
  */
 export function add(req: Request, res: Response) {
     // console.log(req)
@@ -85,7 +85,7 @@ export function add(req: Request, res: Response) {
         state: newAirport.state}
     ).then((exists) => {
         if (exists) {
-            return res.status(400).json({message: "Cet aéroport existe déjà."});
+            return res.status(409).json({message: "Cet aéroport existe déjà."});
         } else {
             newAirport.save()
                 .then(savedAirport => {
