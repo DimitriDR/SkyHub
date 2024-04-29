@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-const flightSchema = Joi.object({
+export const singleFlightSchema = Joi.object({
     _id: Joi.object().required(),
     carrier: Joi.string().min(1).required(),
     origin_id: Joi.number().min(1).required(),
@@ -8,7 +8,7 @@ const flightSchema = Joi.object({
     date: Joi.date().required()
 });
 
-export const flightResponseSchema = Joi.array().items(flightSchema).required();
+export const flightResponseSchema = Joi.array().items(singleFlightSchema).required();
 
 
 

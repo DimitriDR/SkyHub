@@ -65,6 +65,42 @@ function getFlightsFilter(req : Request) {
     return queryFilters;
 }
 
+
+/**
+ * Récupère les informations sur un vol par son identifiant
+ * @param {Request} req L'objet de la requête envoyé par le client
+ * @param {Response} res L'objet de la réponse renvoyé par le serveur
+ *
+ * @route GET /flights/{id}
+ *
+ * @returns {Object} 200 - L'aéroport trouvé
+ * @returns {Object} 500 - Erreur retournée par le serveur
+ *
+ * @throws {Error} 500 - Erreur retournée par le serveur
+ */
+export function getById(req: Request, res: Response): void {
+    const {id} = req.params;
+
+    Flight.findById(id).lean()
+        .then(flight => {
+            if (!flight) {
+                return res.status(404).json({message: "Vol non trouvé."});
+            } else {
+                const validate = validateSchema('singleFlightResponse', flight);
+                if (validate.error) {
+                    console.error(validate.error);
+                    return res.status(500).json({message: "Une erreur est survenue."});
+                } else {
+                    res.status(200).json(flight);
+                }
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            res.status(500).json({message: "Une erreur est survenue."});
+        });
+}
+
 export function add(req: Request, res: Response) {
     let newFlight = new Flight(req.body);
 
@@ -75,7 +111,7 @@ export function add(req: Request, res: Response) {
         date: newFlight.date
     }).then((exists) => {
         if (exists) {
-            return res.status(400).json({message: "Le vol est déjà planifié."});
+            return res.status(409).json({message: "Le vol est déjà planifié."});
         }else {
             newFlight.save()
                 .then(savedFlight => {
@@ -93,12 +129,19 @@ export function update(req: Request, res: Response) {
     const id = req.params.id;
     const flight = req.body;
 
-    Flight.findByIdAndUpdate(id, flight, {new: true})
+    Flight.findByIdAndUpdate(id, flight, {new: true}).lean()
         .then(updatedFlight => {
             if (!updatedFlight) {
                 return res.status(404).json({message: "Vol non trouvé."});
+            } else {
+                const validate = validateSchema('singleFlightResponse', updatedFlight);
+                if (validate.error) {
+                    console.error(validate.error);
+                    res.status(500).json({message: "Une erreur est survenue."});
+                } else {
+                    res.status(200).json(updatedFlight);
+                }
             }
-            res.status(200).json(updatedFlight);
         })
         .catch(error => {
             console.error(error)
@@ -109,39 +152,15 @@ export function update(req: Request, res: Response) {
 export function deleteFlightFromDB(req: Request, res: Response) {
     const id = req.params.id;
     Flight.findByIdAndDelete(id)
-        .then(() => {
-            res.status(204).send();
-        })
-        .catch(error => {
-            console.error(error);
-            res.status(400).json({message: "Requête invalide."});
-        });
-}
-
-/**
- * Récupère les informations sur un vol par son identifiant
- * @param {Request} req L'objet de la requête envoyé par le client
- * @param {Response} res L'objet de la réponse renvoyé par le serveur
- *
- * @route GET /flights/{id}
- *
- * @returns {Object} 200 - L'aéroport trouvé
- * @returns {Object} 500 - Erreur retournée par le serveur
- *
- * @throws {Error} 500 - Erreur retournée par le serveur
- */
-export function getById(req: Request, res: Response): void {
-    const {id} = req.params;
-
-    Flight.findById(id)
-        .then(airport => {
-            if (!airport) {
-                return res.status(404).json({message: "Vol non trouvé."});
+        .then((flight) => {
+            if (!flight) {
+                res.status(404).json({message: "Vol non trouvé."});
+            } else {
+                res.status(204).send();
             }
-            res.status(200).json(airport);
         })
         .catch(error => {
             console.error(error);
-            res.status(500).json({message: "Une erreur est survenue."});
+            res.status(500).json({message: "Une erreur inattendue est survenue."});
         });
 }

@@ -62,6 +62,41 @@ function getAirportsFilters(req : Request) {
     return queryFilters;
 }
 
+/**
+ * Récupère des informations sur un aéroport par son identifiant
+ * @param {Request} req L'objet de la requête envoyé par le client
+ * @param {Response} res L'objet de la réponse renvoyé par le serveur
+ *
+ * @route GET /airports/{id}
+ *
+ * @returns {Object} 200 - L'aéroport trouvé
+ * @returns {Object} 500 - Erreur retournée par le serveur
+ *
+ * @throws {Error} 500 - Erreur retournée par le serveur
+ */
+export function getById(req: Request, res: Response): void {
+    const {id} = req.params;
+
+    Airport.findById(id).lean()
+        .then(airport => {
+            if (!airport) {
+                res.status(404).json({message: "Aéroport non trouvé."});
+            } else {
+                const validate = validateSchema('singleAirportResponse', airport);
+                if (validate.error) {
+                    console.log(validate.error);
+                    return res.status(500).send({message: "Une erreur est survenue."});
+                } else {
+                    res.status(200).json(airport);
+                }
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            res.status(500).json({message: "Une erreur est survenue."});
+        });
+}
+
 
 /**
  * Ajoute un aéroport
@@ -85,7 +120,7 @@ export function add(req: Request, res: Response) {
         state: newAirport.state}
     ).then((exists) => {
         if (exists) {
-            return res.status(409).json({message: "Cet aéroport existe déjà."});
+            res.status(409).json({message: "L'aéroport existe déjà."});
         } else {
             newAirport.save()
                 .then(savedAirport => {
@@ -116,13 +151,20 @@ export function add(req: Request, res: Response) {
 export function update(req: Request, res: Response): void {
     const {id} = req.params;
 
-    Airport.findOneAndUpdate({_id: id}, req.body, {new: true})
+    Airport.findOneAndUpdate({_id: id}, req.body, {new: true}).lean()
         .then(updatedAirport => {
             if (!updatedAirport) {
-                return res.status(404).json({message: "Aéroport non trouvé."});
+                res.status(404).json({message: "Aéroport non trouvé."});
+            } else {
+                const validate = validateSchema('singleAirportResponse', updatedAirport);
+                if (validate.error) {
+                    console.error(validate.error);
+                    res.status(500).json({message: "Une erreur est survenue."});
+                } else {
+                    console.log(updatedAirport)
+                    res.status(200).json(updatedAirport);
+                }
             }
-            console.log(updatedAirport)
-            res.status(201).json(updatedAirport);
         })
         .catch(error => {
             console.error(error);
@@ -151,37 +193,11 @@ export function deleteAirportFromDB(req: Request, res: Response): void {
     Airport.findOneAndDelete({_id: id})
         .then(airport => {
             if (!airport) {
-                return res.status(404).json({message: "Aéroport non trouvé."});
+                res.status(404).json({message: "Aéroport non trouvé."});
+            } else {
+                console.log('fin ', airport);
+                res.status(204).send();
             }
-            res.status(200).json({message: "Aéroport supprimé avec succès."});
-        })
-        .catch(error => {
-            console.error(error);
-            res.status(500).json({message: "Une erreur est survenue."});
-        });
-}
-
-/**
- * Récupère des informations sur un aéroport par son identifiant
- * @param {Request} req L'objet de la requête envoyé par le client
- * @param {Response} res L'objet de la réponse renvoyé par le serveur
- *
- * @route GET /airports/{id}
- *
- * @returns {Object} 200 - L'aéroport trouvé
- * @returns {Object} 500 - Erreur retournée par le serveur
- *
- * @throws {Error} 500 - Erreur retournée par le serveur
- */
-export function getById(req: Request, res: Response): void {
-    const {id} = req.params;
-
-    Airport.findById(id)
-        .then(airport => {
-            if (!airport) {
-                return res.status(404).json({message: "Aéroport non trouvé."});
-            }
-            res.status(200).json(airport);
         })
         .catch(error => {
             console.error(error);
@@ -200,9 +216,10 @@ export function getName(req : Request, res : Response) {
     Airport.findById(id)
         .then(airport => {
             if (!airport) {
-                return res.status(404).json({message: "Aéroport non trouvé."});
+                res.status(404).json({message: "Aéroport non trouvé."});
+            } else {
+                res.status(200).json({name : airport.name});
             }
-            res.status(200).json({name : airport.name});
         })
         .catch(error => {
             console.error(error);

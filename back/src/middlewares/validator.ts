@@ -8,7 +8,7 @@ export function validate(validator: ValidatorSchemaString) {
         throw new Error(`'${validator}' validator does not exist`);
 
     return async function(req: Request, res: Response, next: NextFunction) {
-        console.log(req.body);
+        console.log('validate '+validator, req.body);
         try {
             await Validators[validator].validateAsync(req.body);
             next();
