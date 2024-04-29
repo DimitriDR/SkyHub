@@ -1,0 +1,776 @@
+{
+	"info": {
+		"_postman_id": "3413e667-de49-4ac7-9bf9-1cab80ee64de",
+		"name": "Skyhub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Airports",
+			"item": [
+				{
+					"name": "get brut - 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/airports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pagination - 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/airports?limit=5&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "avec queryParams - 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/airports?state=AK&page=1&limit=47",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports"
+							],
+							"query": [
+								{
+									"key": "state",
+									"value": "AK"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "47"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "avec queryParams2 - 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/airports?state=AK&name=Juneau International",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports"
+							],
+							"query": [
+								{
+									"key": "state",
+									"value": "AK"
+								},
+								{
+									"key": "name",
+									"value": "Juneau International"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id - 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/airports/12819",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports",
+								"12819"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id non existant - 404",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/airports/102990000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports",
+								"102990000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get name - 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/airports/12819/name",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports",
+								"12819",
+								"name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get name - inexistant - 404",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/airports/10299/name",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports",
+								"10299",
+								"name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get ?id - 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/airports?id=10304",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "10304"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create airport 201",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"city\": \"t11\",\r\n  \"state\": \"t22\",\r\n  \"name\": \"t33\"\r\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/airports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create airport - déjà existant - 409",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"city\": \"Juneau\",\r\n  \"state\": \"AK\",\r\n  \"name\": \"Juneau International\"\r\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/airports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create airport - erreur body - 422",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"city\": \"t1error\",\r\n  \"state\": \"t1error\",\r\n  \"nae\": \"t1error\"\r\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/airports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete airport - 204",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/airports/10926",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports",
+								"10926"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete airport inexistant - 404",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/airports/9999999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports",
+								"9999999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update airports - 200",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"city\": \"TEST2\",\r\n  \"state\": \"TEST\",\r\n  \"name\": \"TsssssssEEEEEST\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/airports/15401",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports",
+								"15401"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update airports - error body - 422",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"city\": \"TEST\",\r\n  \"ste\": \"TEST\",\r\n  \"name\": \"TEST\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/airports/10304",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports",
+								"10304"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update airports - error body 2 - 422",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"city\": \"TEST\",\r\n  \"state\": \"TEST\",\r\n  \"name\": 1234567\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/airports/10304",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"airports",
+								"10304"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flights",
+			"item": [
+				{
+					"name": "pagination - 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/flights?limit=10&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "multiple filter - 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/flights?origin_id=12266&date=2025-02-26",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights"
+							],
+							"query": [
+								{
+									"key": "origin_id",
+									"value": "12266"
+								},
+								{
+									"key": "date",
+									"value": "2025-02-26"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id - 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/flights/662f9c4d73b4ca040b6aaa77",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights",
+								"662f9c4d73b4ca040b6aaa77"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id non existant - 404",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/flights/662f9c4d73b4ca04aaaaaa74",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights",
+								"662f9c4d73b4ca04aaaaaa74"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create flight - 201",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"carrier\": \"AZERTYUIOP\",\r\n  \"origin_id\": \"333333\",\r\n  \"destination_id\": \"553333555\",\r\n  \"date\": \"2025-11-19T13:00:00Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/flights",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create flight - error body 422",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"carrier\": 333,\r\n  \"origin_id\": \"dddd\",\r\n  \"destination_id\": \"553333555\",\r\n  \"date\": \"2025-11-19T13:00:00Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/flights",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete flight - 204",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/flights/662f9c4d73b4ca040b6aaa87",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights",
+								"662f9c4d73b4ca040b6aaa87"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete flight inexistant - 404",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/flights/662f9c4d73b4ca040b6aaa71",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights",
+								"662f9c4d73b4ca040b6aaa71"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update flight - 200",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"carrier\": \"TEST_PUT222\",\r\n  \"origin_id\": \"44444\",\r\n  \"destination_id\": \"55555\",\r\n  \"date\": \"2025-11-19T13:00:00Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/flights/662f9c4d73b4ca040b6aaa74",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights",
+								"662f9c4d73b4ca040b6aaa74"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update flight - erreur body 422",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"carrier\": \"TEST_PUT222\",\r\n  \"origin_id\": \"44444\",\r\n  \"ok\": \"55555\",\r\n  \"date\": \"2025-11-19T13:00:00Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/flights/662bbe2377e6154ecd7914c2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights",
+								"662bbe2377e6154ecd7914c2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update flight - inexistant 404",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"carrier\": \"TEST_PUT222\",\r\n  \"origin_id\": \"44444\",\r\n  \"destination_id\": \"55555\",\r\n  \"date\": \"2025-11-19T13:00:00Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/flights/662bbe2377e6154ecd7914c2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights",
+								"662bbe2377e6154ecd7914c2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "URL Invalide - 404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/airpo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"airpo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
