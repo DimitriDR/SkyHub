@@ -3,12 +3,10 @@
 API permettant d'accéder à des données (fictives) sur l'aviation.
 
 ## Note pour la documentation
-La documentation se trouve dans le dossier `./docs`. Deux fichiers sont disponibles,
-un fichier `.yaml` que vous pouvez copier/coller dans le site [Swagger Editor](https://editor.swagger.io/), ou
-il est possible de consulter la documentation directement par le fichier `.html` dans n'importe quel navigateur.
+La documentation se trouve dans le dossier `./docs` au format brut YAML.
+Autrement, il est possible d'y accéder directement via `http://localhost:4000/api-docs/` du serveur.
 
 ## Installation
-
 Comme demandé, le projet est disponible sous la forme d'un Docker Compose.
 Un exemple est disponible ici : [docker-compose.yml](docker/docker-compose.yaml).
 En se plaçant à la racine du projet, il est possible de l'exécuter en lançant directement par la commande :

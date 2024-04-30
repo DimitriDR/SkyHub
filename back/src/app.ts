@@ -1,7 +1,12 @@
-import express, {Express, NextFunction, Request, Response} from 'express';
+import express, {Application, Express, NextFunction, Request, Response} from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import routes from './index'; // Assuming index.ts exports the routes
+import YAML from 'js-yaml';
+import fs from 'fs';
+import routes from './index';
+import swaggerUi from 'swagger-ui-express';
+import {SwaggerOptions} from "swagger-ui-express";
+import swaggerJSDoc from "swagger-jsdoc"; // Assuming index.ts exports the routes
 dotenv.config()
 
 const app: Express = express();
@@ -14,7 +19,7 @@ const PORT: number = 4000;
 
 // On doit nécessairement demander à l'utilisateur de renseigner le nom du conteneur de la BD pour pouvoir se connecter
 // Par ce biais, on va utiliser le Magic DNS de Docker pour avoir la bonne adresse IP
-const DB_HOSTNAME: string = String(process.env.DB_HOSTNAME)
+const DB_HOSTNAME: string = "localhost"
 
 // Constantes qui ne bougent pas, car aucun intérêt pour l'utilisateur de les changer.
 const DB_PORT: number = 27017;
@@ -22,6 +27,19 @@ const DB_DATABASE_NAME: string = "skyhub"
 
 // URL de connexion à la BD
 const DB_CONNECTION: string = `mongodb://${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}`;
+
+function initializeOpenApi(app: Application) {
+    const openAPISpecs = YAML.load(fs.readFileSync("../docs/skyhub.yaml", "utf-8"));
+
+    const options: SwaggerOptions = {
+        swaggerDefinition: openAPISpecs,
+        apis: ["./src/routes/*.ts"]
+    }
+
+    const swaggerSpec = swaggerJSDoc(options);
+
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+}
 
 //-----------
 async function startServer() {
@@ -36,6 +54,7 @@ async function startServer() {
         app.use(express.urlencoded({extended: false}));
 
         // Routes
+        initializeOpenApi(app);
         app.use('/api', routes);
 
         // Gère toute URL incorrecte : Not Found
