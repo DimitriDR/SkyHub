@@ -49,7 +49,7 @@ export async function createFlight(req: Request, res: Response) {
         console.log('createFlight');
         const airportOk: boolean = await checkAirportExists(req);
         if (!airportOk) {
-            return res.status(404).json({message: "L'aéroport de départ ou d'arrivée est invalide."});
+            return res.status(400).json({message: "L'aéroport de départ ou d'arrivée est invalide."});
         }
         return add(req, res);
     } catch (e) {
@@ -62,7 +62,7 @@ export async function updateFight(req : Request, res : Response) {
         console.log('updateFlight');
         const airportOk: boolean = await checkAirportExists(req);
         if (!airportOk) {
-            return res.status(404).json({message: "L'aéroport de départ ou d'arrivée est invalide."});
+            return res.status(400).json({message: "L'aéroport de départ ou d'arrivée est invalide."});
         }
         return update(req, res);
     } catch (e) {
