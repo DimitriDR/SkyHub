@@ -524,7 +524,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/api/flights/662f9c4d73b4ca040b6aaa77",
+							"raw": "http://localhost:4000/api/flights/6630eb1180f5684d1fac03b1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -533,7 +533,7 @@
 							"path": [
 								"api",
 								"flights",
-								"662f9c4d73b4ca040b6aaa77"
+								"6630eb1180f5684d1fac03b1"
 							]
 						}
 					},
@@ -562,6 +562,35 @@
 				},
 				{
 					"name": "create flight - 201",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"carrier\": \"AZERTYUIOP\",\r\n  \"origin_id\": \"12339\",\r\n  \"destination_id\": \"14696\",\r\n  \"date\": \"2025-11-19T13:00:00Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/flights",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create flight - 400",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -624,7 +653,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/api/flights/6630e37480f5684d1fabdc15",
+							"raw": "http://localhost:4000/api/flights/6630eb1180f5684d1fac03c3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -633,7 +662,7 @@
 							"path": [
 								"api",
 								"flights",
-								"6630e37480f5684d1fabdc15"
+								"6630eb1180f5684d1fac03c3"
 							]
 						}
 					},
@@ -662,6 +691,36 @@
 				},
 				{
 					"name": "update flight - 200",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"carrier\": \"TEST_PUT222\",\r\n  \"origin_id\": \"11867\",\r\n  \"destination_id\": \"13290\",\r\n  \"date\": \"2025-11-19T13:00:00Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/flights/6630eb1180f5684d1fac03b2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"flights",
+								"6630eb1180f5684d1fac03b2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update flight - 400",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -727,7 +786,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"carrier\": \"TEST_PUT222\",\r\n  \"origin_id\": \"44444\",\r\n  \"destination_id\": \"55555\",\r\n  \"date\": \"2025-11-19T13:00:00Z\"\r\n}",
+							"raw": "{\r\n  \"carrier\": \"TEST_PUT222\",\r\n  \"origin_id\": \"13290\",\r\n  \"destination_id\": \"11867\",\r\n  \"date\": \"2025-11-19T13:00:00Z\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -735,7 +794,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/flights/662bbe2377e6154ecd7914c2",
+							"raw": "http://localhost:4000/api/flights/562bbe2377e6154ecd7914c2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -744,7 +803,7 @@
 							"path": [
 								"api",
 								"flights",
-								"662bbe2377e6154ecd7914c2"
+								"562bbe2377e6154ecd7914c2"
 							]
 						}
 					},
