@@ -192,7 +192,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/api/airports/10299/name",
+							"raw": "http://localhost:4000/api/airports/999999/name",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -201,7 +201,7 @@
 							"path": [
 								"api",
 								"airports",
-								"10299",
+								"999999",
 								"name"
 							]
 						}
@@ -624,7 +624,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/api/flights/662f9c4d73b4ca040b6aaa87",
+							"raw": "http://localhost:4000/api/flights/6630e37480f5684d1fabdc15",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -633,7 +633,7 @@
 							"path": [
 								"api",
 								"flights",
-								"662f9c4d73b4ca040b6aaa87"
+								"6630e37480f5684d1fabdc15"
 							]
 						}
 					},
@@ -675,7 +675,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/api/flights/662f9c4d73b4ca040b6aaa74",
+							"raw": "http://localhost:4000/api/flights/6630e37480f5684d1fabdc17",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -684,7 +684,7 @@
 							"path": [
 								"api",
 								"flights",
-								"662f9c4d73b4ca040b6aaa74"
+								"6630e37480f5684d1fabdc17"
 							]
 						}
 					},
