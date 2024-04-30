@@ -1,0 +1,768 @@
+openapi: "3.0.2"
+info:
+  title: SkyHub API
+  description: API permettant de récupérer diverses données (fictives) sur l'aviation.
+  version: "1.0.0"
+  license:
+    name: Licence MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: http://localhost:4000
+    description: Serveur local
+
+tags:
+  - name: flights
+    description: Opérations liées aux vols
+  - name: airports
+    description: Opérations liées aux aéroports
+
+paths:
+  /api/airports:
+    get:
+      summary: Récupérer la liste complète des aéroports
+      tags:
+        - airports
+      parameters:
+        - in: query
+          name: id
+          required: false
+          description: Identifiant unique de l'aéroport.
+          schema:
+            type: integer
+            example: 10165
+        - in: query
+          name: city
+          required: false
+          description: Ville où se situe l'aéroport.
+          schema:
+            type: string
+            example: San Francisco
+        - in: query
+          name: state
+          required: false
+          description: Code ISO 3166-2 (moins le préfixe « US- ») de l'état où se situe l'aéroport.
+          schema:
+            type: string
+            example: CA
+        - in: query
+          name: name
+          required: false
+          description: Nom de l'aéroport.
+          schema:
+            type: string
+            example: San Francisco International
+        - in: query
+          name: page
+          required: false
+          description: Numéro de la page de résultat de la pagination.
+          schema:
+            type: integer
+            example: 5
+            default: 1
+            minimum: 1
+        - in: query
+          name: limit
+          required: false
+          description: Nombre d'objets-résultats retournés par page
+          schema:
+            type: integer
+            example: 100
+            default: 10
+      responses:
+        200:
+          description: Une liste de tous les aéroports enregistrés.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Airport'
+        500:
+          description: Erreur côté serveur
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Une erreur inattendue est survenue
+    post:
+      summary: Ajouter un aéroport
+      tags:
+        - airports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                city:
+                  type: string
+                  description: Ville où se situe l'aéroport.
+                  example: Washington
+                state:
+                  type: string
+                  description: Code ISO 3166-2 (moins le préfixe « US- ») de l'état où se situe l'aéroport.
+                  example: DC
+                name:
+                  type: string
+                  description: Nom de l'aéroport.
+                  example: Washington Airport
+              required:
+                - city
+                - state
+                - name
+      responses:
+        201:
+          description: L'aéroport a été ajouté avec succès.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  city:
+                    type: string
+                    example: Washington
+                  state:
+                    type: string
+                    example: DC
+                  name:
+                    type: string
+                    example: Washington Airport
+                  _id:
+                    type: integer
+                    example: 93999209
+        409:
+          description: Requête invalide, l'aéroport existe déjà.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: L'aéroport existe déjà.
+        422:
+          description: Requête invalide, le corps passé est invalide.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Les données fournies ne sont pas valides.
+        500:
+          description: Erreur côté serveur
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Une erreur inattendue est survenue.
+  /api/airports/{id}/name:
+    get:
+      summary: Récupérer le nom de l'aéroport par un ID
+      tags:
+        - airports
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Identifiant unique de l'aéroport dont on veut récupérer le nom.
+          example: 14771
+      responses:
+        200:
+          description: Le nom de l'aéroport correspondant à l'ID s'affiche.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: San Francisco International
+        404:
+          description: Aéroport non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Aéroport non trouvé.
+
+  /api/airports/{id}:
+    get:
+      summary: Récupérer toutes les informations sur un aéroport ID.
+      tags:
+        - airports
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Identifiant unique de l'aéroport à récupérer.
+          schema:
+            type: integer
+            example: 10165
+      responses:
+        200:
+          description: L'aéroport a été récupéré avec succès.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Airport"
+        404:
+          description: Aéroport non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Aéroport non trouvé.
+        500:
+          description: Erreur côté serveur
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Une erreur inattendue est survenue.
+    delete:
+      summary: Supprimer un aéroport
+      tags:
+        - airports
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Identifiant unique de l'aéroport à supprimer.
+          schema:
+            type: integer
+            example: 93999209
+      responses:
+        204:
+          description: L'aéroport a été supprimé avec succès.
+        404:
+          description: Aéroport non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Aéroport non trouvé.
+        500:
+          description: Erreur côté serveur
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Une erreur inattendue est survenue.
+    put:
+      summary: Mettre à jour un aéroport
+      tags:
+        - airports
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Identifiant unique de l'aéroport à mettre à jour.
+          schema:
+            type: integer
+            example: 10304
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                city:
+                  type: string
+                  description: Ville où se situe l'aéroport.
+                  example: Washington
+                state:
+                  type: string
+                  description: Code ISO 3166-2 (moins le préfixe « US- ») de l'état où se situe l'aéroport.
+                  example: DC
+                name:
+                  type: string
+                  description: Nom de l'aéroport.
+                  example: Washington Airport
+              required:
+                - city
+                - state
+                - name
+      responses:
+        200:
+          description: L'aéroport a été mis à jour avec succès.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  city:
+                    type: string
+                    example: Washington
+                  state:
+                    type: string
+                    example: DC
+                  name:
+                    type: string
+                    example: Washington Airport
+                  _id:
+                    type: integer
+                    example: 20352
+        404:
+          description: Aéroport non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Aéroport non trouvé.
+        422:
+          description: Requête invalide, le corps passé est invalide.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Les données fournies ne sont pas valides.
+        500:
+          description: Requête invalide.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Une erreur inattendue s'est produite.
+
+  /api/flights:
+    get:
+      summary: Récupérer la liste complète des vols
+      tags:
+        - flights
+      responses:
+        200:
+          description: Une liste de tous les vols enregistrés.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Flight"
+        500:
+          description: Erreur côté serveur
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Une erreur inattendue s'est produite."
+      parameters:
+        - in: query
+          name: id
+          required: false
+          description: Identifiant unique du vol.
+          schema:
+            type: string
+            example: "662a6d05a9206857001ad3da"
+        - in: query
+          name: carrier
+          required: false
+          description: Nom de la compagnie aérienne.
+          schema:
+            type: string
+            example: "DL"
+        - in: query
+          name: origin_id
+          required: false
+          description: ID de l'aéroport de départ.
+          schema:
+            type: integer
+            example: 13487
+        - in: query
+          name: destination_id
+          required: false
+          description: ID de l'aéroport d'arrivée.
+          schema:
+            type: integer
+            example: 14771
+        - in: query
+          name: date
+          required: false
+          description: Date de départ du vol au format ISO 8601 (moins la partie avec l'heure).
+          schema:
+            type: string
+            example: "2025-03-23"
+        - in: query
+          name: page
+          required: false
+          description: Numéro de la page de résultat de la pagination.
+          schema:
+            type: integer
+            example: 5
+            default: 1
+            minimum: 1
+        - in: query
+          name: limit
+          required: false
+          description: Nombre d'objets-résultats retournés par page.
+          schema:
+            type: integer
+            example: 100
+            default: 10
+    post:
+      summary: Ajouter un vol
+      tags:
+        - flights
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                carrier:
+                  type: string
+                  description: Transporteur
+                  example: DL
+                origin_id:
+                  type: integer
+                  description: ID de l'aéroport de départ
+                  example: 12000
+                destination_id:
+                  type: integer
+                  description: ID de l'aéroport d'arrivée
+                  example: 13000
+                date:
+                  type: string
+                  description: Date au format ISO 8601.
+                  example: "2025-07-14T12:00:00.000Z"
+              required:
+                - carrier
+                - origin_id
+                - destination_id
+                - date
+      responses:
+        201:
+          description: L'aéroport a été ajouté avec succès.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  carrier:
+                    type: string
+                    example: DL
+                  origin_id:
+                    type: string
+                    example: 12000
+                  destination_id:
+                    type: string
+                    example: 13000
+                  date:
+                    type: string
+                    example: "2025-07-14T12:00:00.000Z"
+                  _id:
+                    type: string
+                    example: 662bc0ede506d52f51421275
+        409:
+          description: Requête invalide, le vol existe déjà.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Le vol existe déjà."
+        400:
+          description: Aéroport de départ ou d'arrivée non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: L'aéroport de départ ou d'arrivée est invalide.
+        422:
+          description: Requête invalide, le corps passé est invalide.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Les données fournies ne sont pas valides.
+        500:
+          description: Erreur côté serveur
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Une erreur inattendue est survenue
+    put:
+      summary: Mettre à jour un vol
+      tags:
+        - flights
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                carrier:
+                  type: string
+                  description: Transporteur
+                  example: DL
+                origin_id:
+                  type: integer
+                  description: ID de l'aéroport de départ
+                  example: 12000
+                destination_id:
+                  type: integer
+                  description: ID de l'aéroport d'arrivée
+                  example: 13000
+                date:
+                  type: string
+                  description: Date au format ISO 8601.
+                  example: "2025-07-14T12:00:00.000Z"
+              required:
+                - carrier
+                - origin_id
+                - destination_id
+                - date
+      responses:
+        200:
+          description: Le vol a été mis à jour avec succès
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  carrier:
+                    type: string
+                    example: DL
+                  origin_id:
+                    type: string
+                    example: 12000
+                  destination_id:
+                    type: string
+                    example: 13000
+                  date:
+                    type: string
+                    example: "2025-07-14T12:00:00.000Z"
+                  _id:
+                    type: string
+                    example: "662bc0ede506d52f51421275"
+        400:
+          description: Aéroport de départ ou d'arrivée non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: L'aéroport de départ ou d'arrivée est invalide.
+        404:
+          description: Vol non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Vol non trouvé."
+        422:
+          description: Requête invalide, le corps passé est invalide.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Les données fournies ne sont pas valides."
+        500:
+          description: Erreur côté serveur
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Une erreur inattendue s'est produite."
+
+  /api/flights/{id}:
+    get:
+      summary: Récupérer un vol spécifique par son ID.
+      tags:
+        - flights
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Identifiant unique du vol à récupérer.
+          schema:
+            type: string
+            example: 662a6d05a9206857001ad3da
+      responses:
+        200:
+          description: Le vol a été supprimé.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Flight"
+        404:
+          description: Vol non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Vol non trouvé.
+        422:
+          description: Requête invalide, le corps passé est invalide.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Les données fournies ne sont pas valides.
+        500:
+          description: Erreur côté serveur
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Une erreur inattendue est survenue
+    delete:
+      summary: Supprimer un vol selon un ID spécifié
+      tags:
+        - flights
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Identifiant unique du vol à supprimer.
+          schema:
+            type: string
+            example: 662a6d05a9206857001ad3da
+      responses:
+        204:
+          description: Le vol a bien été supprimé
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Flight"
+        404:
+          description: Vol non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Vol non trouvé.
+        500:
+          description: Erreur côté serveur
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Une erreur inattendue est survenue.
+components:
+  schemas:
+    Flight:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: ID du vol. Unique.
+          example: 662a6d05a9206857001ad3da
+        carrier:
+          type: string
+          description: Nom de la compagnie aérienne.
+          example: DL
+        origin_id:
+          type: integer
+          format: int32
+          description: ID de l'aéroport de départ
+          example: 12954
+        destination_id:
+          type: integer
+          format: int32
+          description: ID de l'aéroport d'arrivée
+          example: 12892
+        date:
+          type: string
+          description: Date de départ du vol.
+          example: "2025-03-23T23:00:00.000Z"
+    Airport:
+      type: object
+      properties:
+        _id:
+          type: integer
+          description: Identifiant unique de l'aéroport.
+          example: 14771
+        city:
+          type: string
+          description: Ville où se situe l'aéroport.
+          example: San Francisco
+        state:
+          type: string
+          description: Code ISO 3166-2 (moins le préfixe US-) de l'état où se situe l'aéroport.
+          example: CA
+        name:
+          type: string
+          description: Nom de l'aéroport.
+          example: San Francisco International

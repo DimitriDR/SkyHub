@@ -6,6 +6,8 @@ API permettant d'accéder à des données (fictives) sur l'aviation.
 La documentation se trouve dans le dossier `./docs` au format brut YAML.
 Autrement, il est possible d'y accéder directement via `http://localhost:4000/api-docs/` du serveur.
 
+Une copie est présente dans le `./back` pour que le endpoint puisse être pleinement intégré dans le serveur.
+
 ## Installation
 Comme demandé, le projet est disponible sous la forme d'un Docker Compose.
 Un exemple est disponible ici : [docker-compose.yml](docker/docker-compose.yaml).
