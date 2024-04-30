@@ -2,7 +2,7 @@ openapi: "3.0.2"
 info:
   title: SkyHub API
   description: API permettant de récupérer diverses données (fictives) sur l'aviation.
-  version: "0.0.4"
+  version: "1.0.0"
   license:
     name: Licence MIT
     url: https://opensource.org/licenses/MIT
@@ -505,6 +505,16 @@ paths:
                   message:
                     type: string
                     example: "Le vol existe déjà."
+        400:
+          description: Aéroport de départ ou d'arrivée non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: L'aéroport de départ ou d'arrivée est invalide.
         422:
           description: Requête invalide, le corps passé est invalide.
           content:
@@ -580,6 +590,16 @@ paths:
                   _id:
                     type: string
                     example: "662bc0ede506d52f51421275"
+        400:
+          description: Aéroport de départ ou d'arrivée non trouvé.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: L'aéroport de départ ou d'arrivée est invalide.
         404:
           description: Vol non trouvé.
           content:
