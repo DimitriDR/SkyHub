@@ -7,7 +7,7 @@ services:
     environment:
       DB_HOSTNAME: SkyHub-DB  # Le nom ligne 16 doit être reporté ici, autrement notre conteneur ne sait pas l'adresse IP de notre base de données
     ports:
-      - "3000:4000"
+      - "4000:4000"
     depends_on:
       - db
 
