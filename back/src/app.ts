@@ -29,7 +29,7 @@ const DB_DATABASE_NAME: string = "skyhub"
 const DB_CONNECTION: string = `mongodb://${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE_NAME}`;
 
 function initializeOpenApi(app: Application) {
-    const openAPISpecs = YAML.load(fs.readFileSync("./openapi/skyhub.yaml", "utf-8"));
+    const openAPISpecs = YAML.load(fs.readFileSync("./src/openapi/skyhub.yaml", "utf-8"));
 
     const options: SwaggerOptions = {
         swaggerDefinition: openAPISpecs,
