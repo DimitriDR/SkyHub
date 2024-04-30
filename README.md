@@ -1,6 +1,12 @@
 # SkyHub
 ## Description
 API permettant d'accéder à des données (fictives) sur l'aviation.
+
+## Note pour la documentation
+La documentation se trouve dans le dossier `./docs`. Deux fichiers sont disponibles,
+un fichier `.yaml` que vous pouvez copier/coller dans le site [Swagger Editor](https://editor.swagger.io/), ou
+il est possible de consulter la documentation directement par le fichier `.html` dans n'importe quel navigateur.
+
 ## Installation
 
 Comme demandé, le projet est disponible sous la forme d'un Docker Compose.
@@ -25,7 +31,7 @@ services:
     environment:
       DB_HOSTNAME: SkyHub-DB  # Le nom ligne 16 doit être reporté ici, autrement notre conteneur ne sait pas l'adresse IP de notre base de données
     ports:
-      - "3000:4000"
+      - "4000:4000" # On peut choisir n'importe quel port pour l'hôte, mais Postman a été configuré pour le port 4000
     depends_on:
       - db
 
